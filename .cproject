@@ -125,6 +125,30 @@
                             <tool id="com.ti.ccstudio.buildDefinitions.sysConfig.259684476" name="SysConfig" superClass="com.ti.ccstudio.buildDefinitions.sysConfig.1780777144"/>
                         </toolChain>
                     </folderInfo>
+                    <folderInfo id="com.ti.ccstudio.buildDefinitions.TMS470.Debug.508079426.Hardware/USOUND" name="USOUND" resourcePath="Hardware/USOUND">
+                        <toolChain id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.DebugToolchain.1145134965" name="TI Build Tools" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.DebugToolchain" unusedChildren="">
+                            <option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.2008793572.229183179.206497107" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.2008793572.229183179"/>
+                            <option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1357856703.1526457625.450595008" name="Compiler version" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1357856703.1526457625"/>
+                            <tool id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.compilerDebug.322148552" name="Arm Compiler" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.compilerDebug.1019953894">
+                                <option id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.compilerID.INCLUDE_PATH.1640107102" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.compilerID.INCLUDE_PATH" valueType="includePath">
+                                    <listOptionValue value="${COM_TI_MSPM0_SDK_INCLUDE_PATH}"/>
+                                    <listOptionValue value="${SYSCONFIG_TOOL_INCLUDE_PATH}"/>
+                                    <listOptionValue value="${PROJECT_ROOT}"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/${ConfigName}"/>
+                                    <listOptionValue value="${COM_TI_MSPM0_SDK_INSTALL_DIR}/source/third_party/CMSIS/Core/Include"/>
+                                    <listOptionValue value="${COM_TI_MSPM0_SDK_INSTALL_DIR}/source"/>
+                                    <listOptionValue value="${MY_PATH}../Hardware/BUZ"/>
+                                    <listOptionValue value="${PROJECT_ROOT}../HardWare/OLED"/>
+                                    <listOptionValue value="${MY_PATH}../Hardware"/>
+                                    <listOptionValue value="${MY_PATH}../User"/>
+                                </option>
+                            </tool>
+                            <tool id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.linkerDebug.1978524308" name="Arm Linker" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.linkerDebug.452725883"/>
+                            <tool id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.hex.242474362" name="Arm Hex Utility" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.hex.1042084534"/>
+                            <tool id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.objcopy.1082554130" name="Arm Objcopy Utility" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.objcopy.1278156646"/>
+                            <tool id="com.ti.ccstudio.buildDefinitions.sysConfig.2141321528" name="SysConfig" superClass="com.ti.ccstudio.buildDefinitions.sysConfig.259684476"/>
+                        </toolChain>
+                    </folderInfo>
                     <folderInfo id="com.ti.ccstudio.buildDefinitions.TMS470.Debug.508079426.Hardware/OLED" name="OLED" resourcePath="Hardware/OLED">
                         <toolChain id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.DebugToolchain.286998535" name="TI Build Tools" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.DebugToolchain" unusedChildren="">
                             <option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.2008793572.229183179.614682660" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.2008793572.229183179"/>

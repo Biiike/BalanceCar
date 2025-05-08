@@ -7,7 +7,7 @@
 #include "SHOW.h" 
 
 
-uint8_t Range=110;
+uint8_t Range=0;
 float pitch=0;
 float roll=0;
 float yaw=0;
@@ -22,10 +22,12 @@ int main(void)
     OLED_Init();//oled初始化
     MPU6050_Init();//mpu初始化
     mpu_dmp_init();//dmp初始化
+    NVIC_ClearPendingIRQ(TIMER_USOUND_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_USOUND_INST_INT_IRQN);
 
     NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
+
     NVIC_ClearPendingIRQ(TIMER_1_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_1_INST_INT_IRQN);
 
