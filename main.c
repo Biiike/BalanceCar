@@ -35,14 +35,14 @@ int main(void)
 
     while (1) 
     {
-        delay_ms(20);
+        delay_ms(50);
        SHOW(Range, pitch, roll, yaw,sys_state);//菜单显示函数
     }
 }
 
 
 
-void TIMER_0_INST_IRQHandler(void)//MPU 25ms ！！理论应该10ms但是低于20 oled 不正常！！
+void TIMER_0_INST_IRQHandler(void)//MPU 14ms  推荐吧pid和pwm放在这里面一起输出 中断低于13ms oled 刷新率会很低
 {
     mpu_dmp_get_data(&pitch, &roll, &yaw);//欧拉角函数
 }
