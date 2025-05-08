@@ -2,7 +2,7 @@
 #include "stdio.h"
 uint8_t oled_buffer[16];
 
-void SHOW(uint8_t Range, float pitch, float roll, float yaw)
+void SHOW(uint8_t Range, float pitch, float roll, float yaw,bool sys_state)
 {
     OLED_ShowString(0,2,(uint8_t *)"Pitch:",16);
     OLED_ShowString(0,4,(uint8_t *)" Roll:",16);
@@ -15,4 +15,9 @@ void SHOW(uint8_t Range, float pitch, float roll, float yaw)
     sprintf((char *)oled_buffer, "%6.1f", yaw);
     OLED_ShowString(7*8,6,oled_buffer,16);
     sprintf((char *)oled_buffer, "%6d", Range);
-    OLED_ShowString(7*8,0,oled_buffer,16);}
+    OLED_ShowString(7*8,0,oled_buffer,16);
+    if(sys_state)
+        OLED_ShowString(112,0,(uint8_t *)"!",16);
+    else
+        OLED_ShowString(112,0,(uint8_t *)" ",16);
+    }

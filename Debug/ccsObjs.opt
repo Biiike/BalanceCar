@@ -8,6 +8,8 @@
 "./Hardware/OLED/oled.o"
 "./Hardware/USOUND/USOUND.o"
 "./User/DELAY.o"
+"./User/KEY.o"
+"./User/LED.o"
 "./User/SHOW.o"
 -l"./device_linker.cmd"
 -ldevice.cmd.genlibs

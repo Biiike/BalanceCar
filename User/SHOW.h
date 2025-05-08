@@ -5,6 +5,6 @@
 #include "bsp_mpu6050.h"
 #include "inv_mpu.h"
 #include "oled.h"
-void SHOW(uint8_t Range, float pitch, float roll, float yaw);
+void SHOW(uint8_t Range, float pitch, float roll ,float yaw,bool sys_state);
 
 #endif
