@@ -179,8 +179,9 @@ TIMER2.$name              = "TIMER_0";
 TIMER2.timerMode          = "PERIODIC";
 TIMER2.interrupts         = ["ZERO"];
 TIMER2.timerStartTimer    = true;
-TIMER2.timerPeriod        = "14 ms";
-TIMER2.timerClkPrescale   = 8;
+TIMER2.timerClkPrescale   = 10;
+TIMER2.interruptPriority  = "1";
+TIMER2.timerPeriod        = "20ms";
 TIMER2.peripheral.$assign = "TIMG7";
 
 TIMER3.$name              = "TIMER_1";

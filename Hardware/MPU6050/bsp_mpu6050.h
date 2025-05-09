@@ -2,7 +2,7 @@
 #define _BSP_MPU6050_H_
 
 #include "DELAY.h"
-
+#include "Hardware\MPU6050\eMPL\inv_mpu.h"
 
 //设置SDA输出模式 Set SDA output mode
 #define SDA_OUT()   {                                                  \
@@ -76,4 +76,6 @@ void MPU6050ReadGyro(short *gyroData);
 void MPU6050ReadAcc(short *accData);
 float MPU6050_GetTemp(void);
 uint8_t MPU6050ReadID(void);
+void MPU6050_IRQINIT();
+extern float pitch, roll, yaw;
 #endif

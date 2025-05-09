@@ -1,8 +1,20 @@
 #include "USOUND.h"
-
-
+#include "KEY.h"
 
 uint8_t overflowFlag;
+bool sys_state = 0;
+uint16_t Range=0;
+
+//按键的读取也放在超声波的读取中断里了
+void USOUND_Init()
+{
+    NVIC_ClearPendingIRQ(TIMER_USOUND_INST_INT_IRQN);//超声波计时中断开启
+    NVIC_EnableIRQ(TIMER_USOUND_INST_INT_IRQN);
+
+    NVIC_ClearPendingIRQ(TIMER_1_INST_INT_IRQN);//超声波读取中断开启
+    NVIC_EnableIRQ(TIMER_1_INST_INT_IRQN);
+
+}
 
 uint32_t USOUND(void)
 {
@@ -31,13 +43,19 @@ uint32_t USOUND(void)
     return dist;
 }
 
-void TIMER_Ultrasonic_INST_IRQHandler(void)
+void TIMER_Ultrasonic_INST_IRQHandler(void)//超声波的计时中断
 {
-    // switch (DL_TimerG_getPendingInterrupt(TIMER_USOUND_INST)) {
-    //     case DL_TIMER_IIDX_LOAD://溢出事件，也叫重装载事件
-            overflowFlag = 1;
-    //         break;
-    //     default:
-    //         break;
-    // }
+     overflowFlag = 1;
+}
+
+void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 100ms
+{
+    if(KEY_VAL() == 1)//用来测按键的
+        LED_ON(1);
+        
+    if(KEY_VAL() == 2)
+        LED_OFF(1);
+        
+    sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
+    //Range = USOUND(); //超声波调用函数，因为容易卡死所以注释了
 }

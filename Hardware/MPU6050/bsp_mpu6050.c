@@ -1,6 +1,6 @@
 #include "bsp_mpu6050.h"
 #include "stdio.h"
-
+float pitch, roll, yaw;
 
 /******************************************************************
  * 函 数 名 称：IIC_Start
@@ -514,15 +514,26 @@ char MPU6050_Init(void)
     MPU6050_WriteReg(0x68,MPU_INT_EN_REG , 1,(uint8_t*)0x00);        //关闭所有中断 Disable all interrupts
     MPU6050_WriteReg(0x68,MPU_USER_CTRL_REG,1,(uint8_t*)0x00);        //I2C主模式关闭 I2C Master Mode Off
     MPU6050_WriteReg(0x68,MPU_FIFO_EN_REG,1,(uint8_t*)0x00);                //关闭FIFO Close FIFO
-    MPU6050_WriteReg(0x68,MPU_INTBP_CFG_REG,1,(uint8_t*)0X80);        //INT引脚低电平有效 INT pin low level is effective
-      
+    MPU6050_WriteReg(0x68,MPU_INTBP_CFG_REG,1,(uint8_t*)0X80);        //INT引脚低电平有效 INT pin low level is effective  
     if( MPU6050ReadID() == 0 )//检查是否有6050 Check if there is 6050
     {       
             MPU6050_WriteReg(0x68,MPU6050_RA_PWR_MGMT_1, 1,(uint8_t*)0x01);//设置CLKSEL,PLL X轴为参考 Set CLKSEL, PLL X axis as reference
             MPU6050_WriteReg(0x68,MPU_PWR_MGMT2_REG, 1,(uint8_t*)0x00);//加速度与陀螺仪都工作 Both the accelerometer and the gyroscope work
-            MPU_Set_Rate(50);        
+            MPU_Set_Rate(50);
+       
             return 1;
     }
     return 0;
+}
+
+void MPU6050_IRQINIT()
+{
+    NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);//MPU开启读取中断
+    NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN); 
+}
+   
+void TIMER_0_INST_IRQHandler(void)//MPU读取中断 
+{
+    mpu_dmp_get_data(&pitch, &roll, &yaw);//欧拉角函数
 }
 

@@ -10,6 +10,13 @@
 #include "ti_msp_dl_config.h"
 #include "stdio.h"
 #include "string.h"
+
 void receive_task(uint8_t* str);
+void OPENMV_Init(void);
+
+extern uint8_t rx_buff[BUFF_SIZE];
+extern volatile bool packet_ready;
+extern uint8_t packet[BUFF_SIZE];
+
 #endif
 

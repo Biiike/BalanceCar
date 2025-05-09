@@ -3,23 +3,14 @@
 #include "ti/driverlib/m0p/dl_core.h"
 #include "ti/driverlib/m0p/sysctl/dl_sysctl_mspm0g1x0x_g3x0x.h"
 #include "ti_msp_dl_config.h"
-#include "KEY.h"
 #include "BUZ.h"
 #include "SHOW.h" 
 #include <stdbool.h>
-#include "LED.h"
 #include "OPENMV.h"
+#include "USOUND.h"
+#include "bsp_mpu6050.h"
 
-
-uint16_t Range=0;
-float pitch, roll, yaw;
-bool sys_state = 0;
-
-uint8_t rx_buff[BUFF_SIZE];
-volatile uint8_t rx_index = 0;
-volatile bool packet_ready = false;
-uint8_t packet[BUFF_SIZE];
-
+float pitch_buf = 1,roll_buf = 1,yaw_buf = 1;
 int main(void)
 {
 
@@ -27,80 +18,23 @@ int main(void)
     delay_ms(200);
     OLED_Init();//oled初始化
     MPU6050_Init();//mpu初始化
+    MPU6050_IRQINIT();//读取中断初始化
     mpu_dmp_init();//dmp初始化
-    
-    NVIC_ClearPendingIRQ(TIMER_USOUND_INST_INT_IRQN);//超声波开启中断
-    NVIC_EnableIRQ(TIMER_USOUND_INST_INT_IRQN);
-
-    NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);//MPU开启中断
-    NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
-
-    NVIC_ClearPendingIRQ(TIMER_1_INST_INT_IRQN);//超声波读取中断
-    NVIC_EnableIRQ(TIMER_1_INST_INT_IRQN);
+    USOUND_Init();//开启超声波读取中断和定时中断
+    //OPENMV_Init();//开启OPENMV串口中断
 
     while (1) 
     {
         delay_ms(50);
        SHOW(Range, pitch, roll, yaw,sys_state);//菜单显示函数
 
-        if(packet_ready)
-       {
-            __disable_irq();//
-            memcpy(packet, rx_buff, BUFF_SIZE);
-            packet_ready = false;
-            __enable_irq();
-            receive_task(packet);
-       }
-    }
-}
-
-
-
-void TIMER_0_INST_IRQHandler(void)//MPU 14ms  推荐吧pid和pwm放在这里面一起输出 中断低于13ms oled 刷新率会很低
-{
-    mpu_dmp_get_data(&pitch, &roll, &yaw);//欧拉角函数
-}
-
-void TIMER_1_INST_IRQHandler(void)//100ms中断
-{
-    if(KEY_VAL() == 1)//用来测按键的
-        LED_ON(1);
-        
-    if(KEY_VAL() == 2)
-        LED_OFF(1);
-        
-    sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
-
-    //Range = USOUND(); //超声波调用函数，因为容易卡死所以注释了
-}
-
-void UART_1_INST_IRQHandler(void)//串口中断服务函数
-{
-    if(DL_UART_Main_getPendingInterrupt(UART_1_INST)==DL_UART_MAIN_IIDX_RX)
-    {
-        uint8_t receive=DL_UART_Main_receiveData(UART_1_INST);
-        if(rx_index==0)
-        {
-            if(receive==HEADER_BYTE)
-            {
-                rx_buff[rx_index++]=receive;
-            }
-            else if(rx_index<BUFF_SIZE)
-            {
-                rx_buff[rx_index++]=receive;
-                if(rx_index==BUFF_SIZE)
-                {
-                    if(rx_buff[BUFF_SIZE-1]==FOOTER_BYTE)
-                    {
-                        packet_ready=true;
-                    }
-                    rx_index=0;
-                }
-            }
-            else
-            {
-                rx_index=0;
-            }
-        }
+    //     if(packet_ready)
+    //    {
+    //         __disable_irq();//
+    //         memcpy(packet, rx_buff, BUFF_SIZE);
+    //         packet_ready = false;
+    //         __enable_irq();
+    //         receive_task(packet);
+    //    }
     }
 }

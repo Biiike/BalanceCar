@@ -2,14 +2,13 @@
 #define _USOUND_H_
 
 
-
 #include "ti_msp_dl_config.h"
-uint32_t USOUND();
+#include "LED.h"
 
+uint32_t USOUND();
+void USOUND_Init(void);
+extern bool sys_state;//系统运行状态
+extern uint16_t Range;//超声波数据
 
 #endif
 
-/*
- NVIC_EnableIRQ(TIMER_Ultrasonic_INST_INT_IRQN);
- 记得初始化中断函数，不然会卡死程序
-*/
