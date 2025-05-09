@@ -126,6 +126,7 @@ GEN_OPTS__QUOTED :=
 SUBDIRS := \
 . \
 Hardware/BUZ \
+Hardware/MOTOR \
 Hardware/MPU6050 \
 Hardware/MPU6050/eMPL \
 Hardware/OLED \

@@ -44,6 +44,7 @@
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/BUZ"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/USOUND"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Hardware/MOTOR"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/OPENMV"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/MPU6050"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/MPU6050/eMPL"/>
