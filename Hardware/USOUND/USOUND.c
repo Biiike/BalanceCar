@@ -57,5 +57,5 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 100ms
         LED_OFF(1);
         
     sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
-    //Range = USOUND(); //超声波调用函数，因为容易卡死所以注释了
+    Range = USOUND(); //超声波调用函数，因为容易卡死所以注释了
 }

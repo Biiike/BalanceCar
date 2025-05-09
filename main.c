@@ -18,10 +18,10 @@ int main(void)
     delay_ms(200);
     OLED_Init();//oled初始化
     MPU6050_Init();//mpu初始化
-    MPU6050_IRQINIT();//读取中断初始化
     mpu_dmp_init();//dmp初始化
     USOUND_Init();//开启超声波读取中断和定时中断
     //OPENMV_Init();//开启OPENMV串口中断
+    MPU6050_IRQINIT();//读取中断初始化 必须放在所有初始化的最后
 
     while (1) 
     {
