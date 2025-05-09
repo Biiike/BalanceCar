@@ -18,6 +18,7 @@ ORDERED_OBJS += \
 "./Hardware/MPU6050/eMPL/inv_mpu.o" \
 "./Hardware/MPU6050/eMPL/inv_mpu_dmp_motion_driver.o" \
 "./Hardware/OLED/oled.o" \
+"./Hardware/OPENMV/OPENMV.o" \
 "./Hardware/USOUND/USOUND.o" \
 "./User/DELAY.o" \
 "./User/KEY.o" \
@@ -39,6 +40,7 @@ RMDIR := RMDIR /S/Q
 -include Hardware/MPU6050/subdir_vars.mk
 -include Hardware/MPU6050/eMPL/subdir_vars.mk
 -include Hardware/OLED/subdir_vars.mk
+-include Hardware/OPENMV/subdir_vars.mk
 -include Hardware/USOUND/subdir_vars.mk
 -include User/subdir_vars.mk
 -include subdir_rules.mk
@@ -46,6 +48,7 @@ RMDIR := RMDIR /S/Q
 -include Hardware/MPU6050/subdir_rules.mk
 -include Hardware/MPU6050/eMPL/subdir_rules.mk
 -include Hardware/OLED/subdir_rules.mk
+-include Hardware/OPENMV/subdir_rules.mk
 -include Hardware/USOUND/subdir_rules.mk
 -include User/subdir_rules.mk
 -include objects.mk
@@ -178,8 +181,8 @@ Balance.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.o" "ti_msp_dl_config.o" "startup_mspm0g350x_ticlang.o" "Hardware\BUZ\BUZ.o" "Hardware\MPU6050\bsp_mpu6050.o" "Hardware\MPU6050\eMPL\inv_mpu.o" "Hardware\MPU6050\eMPL\inv_mpu_dmp_motion_driver.o" "Hardware\OLED\oled.o" "Hardware\USOUND\USOUND.o" "User\DELAY.o" "User\KEY.o" "User\LED.o" "User\SHOW.o" 
-	-$(RM) "main.d" "ti_msp_dl_config.d" "startup_mspm0g350x_ticlang.d" "Hardware\BUZ\BUZ.d" "Hardware\MPU6050\bsp_mpu6050.d" "Hardware\MPU6050\eMPL\inv_mpu.d" "Hardware\MPU6050\eMPL\inv_mpu_dmp_motion_driver.d" "Hardware\OLED\oled.d" "Hardware\USOUND\USOUND.d" "User\DELAY.d" "User\KEY.d" "User\LED.d" "User\SHOW.d" 
+	-$(RM) "main.o" "ti_msp_dl_config.o" "startup_mspm0g350x_ticlang.o" "Hardware\BUZ\BUZ.o" "Hardware\MPU6050\bsp_mpu6050.o" "Hardware\MPU6050\eMPL\inv_mpu.o" "Hardware\MPU6050\eMPL\inv_mpu_dmp_motion_driver.o" "Hardware\OLED\oled.o" "Hardware\OPENMV\OPENMV.o" "Hardware\USOUND\USOUND.o" "User\DELAY.o" "User\KEY.o" "User\LED.o" "User\SHOW.o" 
+	-$(RM) "main.d" "ti_msp_dl_config.d" "startup_mspm0g350x_ticlang.d" "Hardware\BUZ\BUZ.d" "Hardware\MPU6050\bsp_mpu6050.d" "Hardware\MPU6050\eMPL\inv_mpu.d" "Hardware\MPU6050\eMPL\inv_mpu_dmp_motion_driver.d" "Hardware\OLED\oled.d" "Hardware\OPENMV\OPENMV.d" "Hardware\USOUND\USOUND.d" "User\DELAY.d" "User\KEY.d" "User\LED.d" "User\SHOW.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

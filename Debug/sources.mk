@@ -129,6 +129,7 @@ Hardware/BUZ \
 Hardware/MPU6050 \
 Hardware/MPU6050/eMPL \
 Hardware/OLED \
+Hardware/OPENMV \
 Hardware/USOUND \
 User \
 

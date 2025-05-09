@@ -44,6 +44,7 @@
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/BUZ"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/USOUND"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Hardware/OPENMV"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/MPU6050"/>
                                     <listOptionValue value="${PROJECT_ROOT}/Hardware/MPU6050/eMPL"/>
                                     <listOptionValue value="${PROJECT_ROOT}/User"/>
@@ -129,6 +130,7 @@
                         <toolChain id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.DebugToolchain.1145134965" name="TI Build Tools" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.DebugToolchain" unusedChildren="">
                             <option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.2008793572.229183179.206497107" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.2008793572.229183179"/>
                             <option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1357856703.1526457625.450595008" name="Compiler version" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1357856703.1526457625"/>
+                            <targetPlatform id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.targetPlatformDebug" name="Platform" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.targetPlatformDebug"/>
                             <tool id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.compilerDebug.322148552" name="Arm Compiler" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.exe.compilerDebug.1019953894">
                                 <option id="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.compilerID.INCLUDE_PATH.1640107102" superClass="com.ti.ccstudio.buildDefinitions.TMS470_TICLANG_4.0.compilerID.INCLUDE_PATH" valueType="includePath">
                                     <listOptionValue value="${COM_TI_MSPM0_SDK_INCLUDE_PATH}"/>

@@ -6,6 +6,7 @@
 "./Hardware/MPU6050/eMPL/inv_mpu.o"
 "./Hardware/MPU6050/eMPL/inv_mpu_dmp_motion_driver.o"
 "./Hardware/OLED/oled.o"
+"./Hardware/OPENMV/OPENMV.o"
 "./Hardware/USOUND/USOUND.o"
 "./User/DELAY.o"
 "./User/KEY.o"

@@ -8,12 +8,17 @@
 #include "SHOW.h" 
 #include <stdbool.h>
 #include "LED.h"
+#include "OPENMV.h"
 
 
 uint16_t Range=0;
 float pitch, roll, yaw;
 bool sys_state = 0;
 
+uint8_t rx_buff[BUFF_SIZE];
+volatile uint8_t rx_index = 0;
+volatile bool packet_ready = false;
+uint8_t packet[BUFF_SIZE];
 
 int main(void)
 {
@@ -37,6 +42,15 @@ int main(void)
     {
         delay_ms(50);
        SHOW(Range, pitch, roll, yaw,sys_state);//菜单显示函数
+
+        if(packet_ready)
+       {
+            __disable_irq();//
+            memcpy(packet, rx_buff, BUFF_SIZE);
+            packet_ready = false;
+            __enable_irq();
+            receive_task(packet);
+       }
     }
 }
 
@@ -58,4 +72,35 @@ void TIMER_1_INST_IRQHandler(void)//100ms中断
     sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
 
     //Range = USOUND(); //超声波调用函数，因为容易卡死所以注释了
+}
+
+void UART_1_INST_IRQHandler(void)//串口中断服务函数
+{
+    if(DL_UART_Main_getPendingInterrupt(UART_1_INST)==DL_UART_MAIN_IIDX_RX)
+    {
+        uint8_t receive=DL_UART_Main_receiveData(UART_1_INST);
+        if(rx_index==0)
+        {
+            if(receive==HEADER_BYTE)
+            {
+                rx_buff[rx_index++]=receive;
+            }
+            else if(rx_index<BUFF_SIZE)
+            {
+                rx_buff[rx_index++]=receive;
+                if(rx_index==BUFF_SIZE)
+                {
+                    if(rx_buff[BUFF_SIZE-1]==FOOTER_BYTE)
+                    {
+                        packet_ready=true;
+                    }
+                    rx_index=0;
+                }
+            }
+            else
+            {
+                rx_index=0;
+            }
+        }
+    }
 }
