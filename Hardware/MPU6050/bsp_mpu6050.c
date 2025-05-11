@@ -2,7 +2,7 @@
 #include "stdio.h"
 #include "Hardware\MOTOR\MOTOR.h"
 float pitch, roll, yaw;
-
+short acc[3];
 /******************************************************************
  * 函 数 名 称：IIC_Start
  * 函 数 说 明：IIC起始时序
@@ -536,6 +536,6 @@ void MPU6050_IRQINIT()
 void TIMER_0_INST_IRQHandler(void)//MPU读取中断 
 {
     mpu_dmp_get_data(&pitch, &roll, &yaw);//欧拉角函数
-    GO_Ahead(200);
+    MPU6050ReadAcc(acc);//读取角加速度
 }
 

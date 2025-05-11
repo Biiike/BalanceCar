@@ -1,68 +1,60 @@
 #include "ti_msp_dl_config.h"
-//#include "OLED.h"
 #include "stdio.h"
-//#include "Servo.h"
 #include "MOTOR.h"
 
-void Motorleft(int Compare)//Compare¬˙÷µ1600
+void pwm_limit(int Target_PWM,int max_value)
 {
-    if(Compare > (1600*0.8))
-        return;
-
-	if(Compare>0)
-	{//◊ÛµÁª˙ ’˝◊™
-	    DL_GPIO_setPins(MOTOR_PORT, MOTOR_AIN2_L_P_PIN);                   
+    if(Target_PWM>max_value)Target_PWM=max_value;
+    if(Target_PWM<-max_value)Target_PWM=-max_value;
+}
+void set_motor1_pwm(int Compare)
+{
+    pwm_limit(Compare,999);
+    DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_0_INDEX);
+}
+void set_motor2_pwm(int Compare)
+{
+    pwm_limit(Compare,999);
+    DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_1_INDEX);
+}
+void set_motor_pwm(int Compare1,int Compare2)
+{
+    if(Compare1>0)//Â∑¶
+    {//Ê≠£ËΩ¨
+        DL_GPIO_setPins(MOTOR_PORT, MOTOR_AIN2_L_P_PIN);                   
         DL_GPIO_clearPins(MOTOR_PORT, MOTOR_AIN1_L_N_PIN);
-        DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_0_INDEX);
-	}
-	if(Compare<0)
-	{//◊ÛµÁª˙ ∑¥◊™
+    }
+    else if(Compare1<0)
+    {//ÂèçËΩ¨
+        Compare1=-Compare1;
 		DL_GPIO_clearPins(MOTOR_PORT, MOTOR_AIN2_L_P_PIN );                   
         DL_GPIO_setPins(MOTOR_PORT, MOTOR_AIN1_L_N_PIN);
-        DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_0_INDEX);
-	}
-}
-void Motorright(int Compare)
-{
-	if(Compare>0)
-	{///”“µÁª˙ ’˝◊™
-		DL_GPIO_setPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN   );                   
+    }
+    else
+    {//ÂÅúËΩ¶
+        DL_GPIO_clearPins(MOTOR_PORT, MOTOR_AIN1_L_N_PIN);
+        DL_GPIO_clearPins(MOTOR_PORT, MOTOR_AIN2_L_P_PIN );
+    }
+    Compare1=-Compare1+999;
+    set_motor1_pwm(Compare1);
+    if(Compare2>0)//Âè≥
+    {//Ê≠£ËΩ¨
+        DL_GPIO_setPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN);                   
         DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN1_R_N_PIN);
-        DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_1_INDEX);
-	}
-	if(Compare<0)
-		{//”“µÁª˙ ∑¥◊™
-		DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN   );                   
+    }
+    else if(Compare2<0)
+    {//ÂèçËΩ¨
+        Compare2=-Compare2;
+        DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN);                   
         DL_GPIO_setPins(MOTOR_PORT, MOTOR_BIN1_R_N_PIN);
-        DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_1_INDEX);}
-}
-
-void GO_Ahead(int Compare)
-{
-	
-if(Compare>0)
-{//◊ÛµÁª˙ ’˝◊™
-	DL_GPIO_setPins(MOTOR_PORT, MOTOR_AIN2_L_P_PIN   );                   
-    DL_GPIO_clearPins(MOTOR_PORT, MOTOR_AIN1_L_N_PIN);
-    DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_0_INDEX);
-	//”“µÁª˙ ’˝◊™
-	DL_GPIO_setPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN   );                   
-    DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN1_R_N_PIN);
-    DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_1_INDEX);
-  
-}
-
-if(Compare<0)
-{//◊ÛµÁª˙  ∑¥◊™
-	DL_GPIO_clearPins(MOTOR_PORT, MOTOR_AIN2_L_P_PIN   );                   
-    DL_GPIO_setPins(MOTOR_PORT, MOTOR_AIN1_L_N_PIN);
-    DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_0_INDEX);
-	//”“µÁª˙ ∑¥◊™
-	DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN   );                   
-    DL_GPIO_setPins(MOTOR_PORT, MOTOR_BIN1_R_N_PIN);
-    DL_TimerG_setCaptureCompareValue(PWM_Motor_INST,Compare, DL_TIMER_CC_1_INDEX);
-}
-
+    }
+    else 
+    {//ÂÅúËΩ¶
+        DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN1_R_N_PIN);
+        DL_GPIO_clearPins(MOTOR_PORT, MOTOR_BIN2_R_P_PIN);
+    }
+    Compare2=-Compare2+999;
+    set_motor2_pwm(Compare2);
 }
 
 

@@ -4,9 +4,7 @@
 #include "ti_msp_dl_config.h"
 
 
-void Motorleft(int Compare);
-void Motorright(int Compare);
-void GO_Ahead(int Compare);
+void set_motor_pwm(int Compare1,int Compare2);
 
 
 

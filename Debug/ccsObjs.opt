@@ -10,6 +10,8 @@
 "./Hardware/OPENMV/OPENMV.o"
 "./Hardware/USOUND/USOUND.o"
 "./User/DELAY.o"
+"./User/ENCODER.o"
+"./User/FINDLINE.o"
 "./User/KEY.o"
 "./User/LED.o"
 "./User/SHOW.o"

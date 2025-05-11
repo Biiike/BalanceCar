@@ -78,4 +78,5 @@ float MPU6050_GetTemp(void);
 uint8_t MPU6050ReadID(void);
 void MPU6050_IRQINIT();
 extern float pitch, roll, yaw;
+extern short acc[3];
 #endif

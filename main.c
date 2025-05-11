@@ -1,7 +1,4 @@
 #include "DELAY.h"
-#include "ti/driverlib/dl_gpio.h"
-#include "ti/driverlib/m0p/dl_core.h"
-#include "ti/driverlib/m0p/sysctl/dl_sysctl_mspm0g1x0x_g3x0x.h"
 #include "ti_msp_dl_config.h"
 #include "BUZ.h"
 #include "SHOW.h" 
@@ -10,8 +7,9 @@
 #include "USOUND.h"
 #include "bsp_mpu6050.h"
 #include "MOTOR.h"
+#include "oled.h"
+uint8_t oled_buffer[16];
 
-float pitch_buf = 1,roll_buf = 1,yaw_buf = 1;
 int main(void)
 {
 
@@ -20,15 +18,26 @@ int main(void)
     OLED_Init();//oled初始化
     MPU6050_Init();//mpu初始化
     mpu_dmp_init();//dmp初始化
-    //USOUND_Init();//开启超声波读取中断和定时中断
+    USOUND_Init();//开启超声波读取中断和定时中断
     //OPENMV_Init();//开启OPENMV串口中断
     MPU6050_IRQINIT();//读取中断初始化 必须放在所有初始化的最后
 
     while (1) 
     {
-        delay_ms(50);
+        if(need_clear_display) {
+            OLED_Clear();
+            need_clear_display = false;
+        }
         
-        SHOW(Range, pitch, roll, yaw,sys_state);//菜单显示函数
+        switch(Page)
+        {
+        case 0:
+            SHOW_Firstpage(Range, pitch, roll, yaw, sys_state);
+        break;
+        case 1:
+            SHOW_Secondpage(acc);//菜单显示函数
+        break;     
+        }
 
     //     if(packet_ready)
     //    {

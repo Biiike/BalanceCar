@@ -1,9 +1,12 @@
 #include "USOUND.h"
 #include "KEY.h"
+#include "Hardware\OLED\oled.h"
 
 uint8_t overflowFlag;
 bool sys_state = 0;
 uint16_t Range=0;
+uint8_t Page = 0; 
+bool need_clear_display = false;  // 添加标志位
 
 //按键的读取也放在超声波的读取中断里了
 void USOUND_Init()
@@ -45,17 +48,18 @@ uint32_t USOUND(void)
 
 void TIMER_Ultrasonic_INST_IRQHandler(void)//超声波的计时中断
 {
-     overflowFlag = 1;
+    overflowFlag = 1;
 }
 
 void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 100ms
-{
-    if(KEY_VAL() == 1)//用来测按键的
-        LED_ON(1);
-        
-    if(KEY_VAL() == 2)
-        LED_OFF(1);
-        
-    sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
-    Range = USOUND(); //超声波调用函数，因为容易卡死所以注释了
+{   
+    switch (KEY_VAL()) {
+        case 1:
+            need_clear_display = true;  // 设置标志位
+            if(++Page > 1) 
+                Page = 0;
+        break;
+    }
+
+    sys_state ^= 1;
 }

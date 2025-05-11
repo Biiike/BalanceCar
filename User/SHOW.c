@@ -2,7 +2,7 @@
 #include "stdio.h"
 uint8_t oled_buffer[16];
 
-void SHOW(uint8_t Range, float pitch, float roll, float yaw,bool sys_state)
+void SHOW_Firstpage (uint8_t Range, float pitch, float roll, float yaw,bool sys_state)
 {
     OLED_ShowString(0,2,(uint8_t *)"Pitch:",16);
     OLED_ShowString(0,4,(uint8_t *)" Roll:",16);
@@ -20,4 +20,17 @@ void SHOW(uint8_t Range, float pitch, float roll, float yaw,bool sys_state)
         OLED_ShowString(112,0,(uint8_t *)"!",16);
     else
         OLED_ShowString(112,0,(uint8_t *)" ",16);
+    }
+
+    void SHOW_Secondpage(short acc[3])
+    {
+    OLED_ShowString(0,2,(uint8_t *)"X:",16);
+    OLED_ShowString(0,4,(uint8_t *)"Y:",16);
+    OLED_ShowString(0,6,(uint8_t *)"Z:",16);
+    sprintf((char *)oled_buffer, "%6.1d", acc[0]);
+    OLED_ShowString(7*8,2,oled_buffer,16);
+    sprintf((char *)oled_buffer, "%6.1d", acc[1]);
+    OLED_ShowString(7*8,4,oled_buffer,16);
+    sprintf((char *)oled_buffer, "%6.1d", acc[2]);
+    OLED_ShowString(7*8,6,oled_buffer,16);    
     }
