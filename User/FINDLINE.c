@@ -89,5 +89,5 @@ void Line_Following()
     current_right += (limit_right>TURN_Limit)?TURN_Limit:(limit_right<-TURN_Limit)?-TURN_Limit:limit_right;
     
     last_area = area;
-    set_motor_pwm(current_left, limit_right);
+    // set_motor_pwm(current_left, limit_right);
 }

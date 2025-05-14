@@ -1,7 +1,7 @@
 #include "LED.h"
 #include "ti/driverlib/dl_gpio.h"
 
-//1是绿色 2是红色 3是蓝色
+//1是蓝色 2是绿色 3是红色
 void LED_ON(uint8_t color){
 
     switch(color){

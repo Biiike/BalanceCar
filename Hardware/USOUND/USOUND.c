@@ -1,13 +1,15 @@
 #include "USOUND.h"
+#include "BUZ.h"
 #include "KEY.h"
 #include "Hardware\OLED\oled.h"
-
+#include "User\ENCODER.h"
 uint8_t overflowFlag;
 bool sys_state = 0;
 uint16_t Range=0;
-uint8_t Page = 0; 
-bool need_clear_display = false;  // 添加标志位
-
+uint8_t Page = 0;
+volatile int cnt[2];
+bool need_clear_display; 
+int Key_Val,Key_Down,Key_Old;
 //按键的读取也放在超声波的读取中断里了
 void USOUND_Init()
 {
@@ -31,7 +33,7 @@ uint32_t USOUND(void)
     DL_TimerG_setTimerCount(TIMER_USOUND_INST, 0);//计数置0
     DL_TimerG_startCounter(TIMER_USOUND_INST);//开始计数
 
-    while(DL_GPIO_readPins(USOUND_PORT, USOUND_Echo_PIN) && (overflowFlag == 0));//溢出或受到回波跳出
+    while((DL_GPIO_readPins(USOUND_PORT, USOUND_Echo_PIN)) && (!overflowFlag));//溢出或受到回波跳出
     DL_TimerG_stopCounter(TIMER_USOUND_INST);//停止计数
 
     if(overflowFlag)
@@ -46,20 +48,36 @@ uint32_t USOUND(void)
     return dist;
 }
 
-void TIMER_Ultrasonic_INST_IRQHandler(void)//超声波的计时中断
+void TIMER_USOUND_INST_IRQHandler(void)//超声波的计时中断
 {
     overflowFlag = 1;
 }
 
-void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 100ms
-{   
-    switch (KEY_VAL()) {
+void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
+{   Key_Val = KEY_VAL();//
+    Key_Down = Key_Val & (Key_Old ^ Key_Val);//
+    Key_Old = Key_Val;
+    switch (Key_Down) {
         case 1:
-            need_clear_display = true;  // 设置标志位
-            if(++Page > 1) 
+            need_clear_display = true;
+            if(++Page > 2) 
                 Page = 0;
-        break;
+        break; 
     }
-
-    sys_state ^= 1;
+    static uint16_t cnt1=0;
+    
+    if(DL_TimerG_getPendingInterrupt(TIMER_1_INST)==DL_TIMER_IIDX_ZERO)
+    {
+        encoder_update();
+        cnt[0] = get_encoder_cnt1();
+        cnt[1] = get_encoder_cnt2();
+        encoder_Rst();
+        sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
+        cnt1++;
+        if(cnt1>=10)
+        {
+            Range = USOUND();
+            cnt1=0;
+        }
+    }
 }

@@ -42,7 +42,7 @@ void GROUP1_IRQHandler(void)
 
     if((gpio_flag&MOTOR_E1A_PIN)==MOTOR_E1A_PIN)//A相上升沿
     {
-        if(DL_GPIO_readPins(MOTOR_PORT,MOTOR_E1B_PIN)==0)
+        if(!DL_GPIO_readPins(MOTOR_PORT,MOTOR_E1B_PIN))
         {
             pre_encoder_cnt1--;
         }
@@ -53,7 +53,7 @@ void GROUP1_IRQHandler(void)
     }
     else if((gpio_flag&MOTOR_E1B_PIN)==MOTOR_E1B_PIN)//B相上升沿
     {
-        if(DL_GPIO_readPins(MOTOR_PORT,MOTOR_E1A_PIN)==0)
+        if(!DL_GPIO_readPins(MOTOR_PORT,MOTOR_E1A_PIN))
         {
             pre_encoder_cnt1++;
         }
@@ -64,24 +64,24 @@ void GROUP1_IRQHandler(void)
     }
     else if((gpio_flag&MOTOR_E2A_PIN)==MOTOR_E2A_PIN)//A2相上升沿
     {
-        if(DL_GPIO_readPins(MOTOR_PORT,MOTOR_E2B_PIN)==0)
+        if(!DL_GPIO_readPins(MOTOR_PORT,MOTOR_E2B_PIN))
         {
-            pre_encoder_cnt2--;
+            pre_encoder_cnt2++;
         }
         else
         {
-            pre_encoder_cnt2++;
+            pre_encoder_cnt2--;
         }
     }
     else if((gpio_flag&MOTOR_E2B_PIN)==MOTOR_E2B_PIN)//B2相上升沿
     {
-        if(DL_GPIO_readPins(MOTOR_PORT,MOTOR_E2A_PIN)==0)
+        if(!DL_GPIO_readPins(MOTOR_PORT,MOTOR_E2A_PIN))
         {
-            pre_encoder_cnt2++;
+            pre_encoder_cnt2--;
         }
         else
         {
-            pre_encoder_cnt2--;
+            pre_encoder_cnt2++;
         }
     }
 

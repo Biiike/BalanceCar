@@ -9,6 +9,7 @@
 "./Hardware/OLED/oled.o"
 "./Hardware/OPENMV/OPENMV.o"
 "./Hardware/USOUND/USOUND.o"
+"./User/CONTROL.o"
 "./User/DELAY.o"
 "./User/ENCODER.o"
 "./User/FINDLINE.o"
