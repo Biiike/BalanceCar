@@ -8,7 +8,7 @@ uint8_t direction=0;
 
 void encoder_init(void)
 {
-    NVIC_ClearPendingIRQ(MOTOR_INT_IRQN);//超串口中断开启
+    NVIC_ClearPendingIRQ(MOTOR_INT_IRQN);//
     NVIC_EnableIRQ(MOTOR_INT_IRQN);
 }
 
@@ -36,7 +36,7 @@ void encoder_update(void)
 }
 void GROUP1_IRQHandler(void)
 {
-    uint32_t gpio_flag;
+    volatile uint32_t gpio_flag;
 
     gpio_flag=DL_GPIO_getEnabledInterruptStatus(MOTOR_PORT,MOTOR_E2B_PIN|MOTOR_E2A_PIN|MOTOR_E1A_PIN|MOTOR_E1B_PIN);
 

@@ -64,20 +64,17 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
                 Page = 0;
         break; 
     }
+
     static uint16_t cnt1=0;
-    
-    if(DL_TimerG_getPendingInterrupt(TIMER_1_INST)==DL_TIMER_IIDX_ZERO)
-    {
-        encoder_update();
-        cnt[0] = get_encoder_cnt1();
-        cnt[1] = get_encoder_cnt2();
-        encoder_Rst();
-        sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
-        cnt1++;
-        if(cnt1>=10)
-        {
-            Range = USOUND();
-            cnt1=0;
-        }
-    }
+    // if(DL_TimerG_getPendingInterrupt(TIMER_1_INST)==DL_TIMER_IIDX_ZERO)
+    // {
+
+    //     sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
+    //     cnt1++;
+    //     if(cnt1>=10)//100ms
+    //     {
+    //         Range = USOUND();
+    //         cnt1=0;
+    //     }
+    // }
 }

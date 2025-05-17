@@ -5,29 +5,29 @@
 // #define  u16 unsigned int
 // #define  u32 unsigned int
 #define OLED_CMD  0	//写命令
-#define OLED_DATA 1	//写数据_SCL_PORT_SCL_PORT
+#define OLED_DATA 1	//写数据
 
-// #ifndef GPIO_I2C_OLED_SCL_PORT
-// #define GPIO_I2C_OLED_SCL_PORT GPIO_OLED_PORT 
-// #endif
+#ifndef GPIO_OLED_PIN_SCL_PORT
+#define GPIO_OLED_PIN_SCL_PORT GPIO_OLED_PORT 
+#endif
 
-// #ifndef GPIO_I2C_OLED_SDA_PORT
-// #define GPIO_I2C_OLED_SDA_PORT GPIO_OLED_PORT 
-// #endif
+#ifndef GPIO_OLED_PIN_SDA_PORT
+#define GPIO_OLED_PIN_SDA_PORT GPIO_OLED_PORT 
+#endif
 
 //----------------------------------------------------------------------------------
 //OLED SSD1306 I2C 时钟SCL
-#define		OLED_SCL_Set()			    (DL_GPIO_setPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN))
-#define		OLED_SCL_Clr()				(DL_GPIO_clearPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN))
+#define		OLED_SCL_Set()			    (DL_GPIO_setPins(GPIO_OLED_PIN_SCL_PORT, GPIO_OLED_PIN_SCL_PIN))
+#define		OLED_SCL_Clr()				(DL_GPIO_clearPins(GPIO_OLED_PIN_SCL_PORT, GPIO_OLED_PIN_SCL_PIN))
 
 //----------------------------------------------------------------------------------
 //OLED SSD1306 I2C 数据SDA
-#define		OLED_SDA_Set()				(DL_GPIO_setPins(GPIO_I2C_OLED_SDA_PORT, GPIO_I2C_OLED_SDA_PIN))
-#define		OLED_SDA_Clr()			    (DL_GPIO_clearPins(GPIO_I2C_OLED_SDA_PORT, GPIO_I2C_OLED_SDA_PIN))
+#define		OLED_SDA_Set()				(DL_GPIO_setPins(GPIO_OLED_PIN_SDA_PORT, GPIO_OLED_PIN_SDA_PIN))
+#define		OLED_SDA_Clr()			    (DL_GPIO_clearPins(GPIO_OLED_PIN_SDA_PORT, GPIO_OLED_PIN_SDA_PIN))
 				   
 
 //OLED控制用函数
-void Delay_ms(unsigned long ms);
+void delay_ms(unsigned long ms);
 void OLED_ColorTurn(uint8_t i);
 void OLED_DisplayTurn(uint8_t i);
 void OLED_WR_Byte(uint8_t dat,uint8_t cmd);
