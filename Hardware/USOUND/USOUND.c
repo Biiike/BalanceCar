@@ -7,7 +7,6 @@ uint8_t overflowFlag;
 bool sys_state = 0;
 uint16_t Range=0;
 uint8_t Page = 0;
-volatile int cnt[2];
 bool need_clear_display; 
 int Key_Val,Key_Down,Key_Old;
 //按键的读取也放在超声波的读取中断里了
@@ -62,7 +61,8 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
             need_clear_display = true;
             if(++Page > 2) 
                 Page = 0;
-        break; 
+        break;
+        default:break; 
     }
 
     static uint16_t cnt1=0;

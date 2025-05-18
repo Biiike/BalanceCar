@@ -2985,7 +2985,7 @@ u8 mpu_dmp_init(void)
 //yaw: heading angle 	accuracy: 0.1°	 range: -180.0° <---> +180.0°
 //Return value: 0, normal
 // 				Others, failed
-u8 mpu_dmp_get_data(float *pitch,float *roll,float *yaw)
+u8 mpu_dmp_get_data(float *pitch,float *roll,float *yaw,short *accel_out)
 {
 	float q0=1.0f,q1=0.0f,q2=0.0f,q3=0.0f;
 	unsigned long sensor_timestamp;
@@ -3003,6 +3003,9 @@ u8 mpu_dmp_get_data(float *pitch,float *roll,float *yaw)
 	/* Unlike gyro and accel, quaternions are written to the FIFO in the body frame, q30.
 	 * The orientation is set by the scalar passed to dmp_set_orientation during initialization. 
 	**/
+    accel_out[0] = accel[0];
+	accel_out[1] = accel[1];
+	accel_out[2] = accel[2];
 	if(sensors&INV_WXYZ_QUAT) 
 	{
 		q0 = quat[0] / q30;	//q30格式转换为浮点数 Convert q30 format to floating point number

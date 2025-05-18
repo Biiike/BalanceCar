@@ -1,9 +1,9 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "MSPM0G350X" --part "Default" --package "LQFP-64(PM)" --product "mspm0_sdk@2.02.00.05"
- * @v2CliArgs --device "MSPM0G3507" --package "LQFP-64(PM)" --product "mspm0_sdk@2.02.00.05"
- * @versions {"tool":"1.21.1+3772"}
+ * @cliArgs --device "MSPM0G350X" --part "Default" --package "LQFP-64(PM)" --product "mspm0_sdk@2.04.00.06"
+ * @v2CliArgs --device "MSPM0G3507" --package "LQFP-64(PM)" --product "mspm0_sdk@2.04.00.06"
+ * @versions {"tool":"1.22.0+3893"}
  */
 
 /**
@@ -27,6 +27,7 @@ const TIMER         = scripting.addModule("/ti/driverlib/TIMER", {}, false);
 const TIMER1        = TIMER.addInstance();
 const TIMER2        = TIMER.addInstance();
 const TIMER3        = TIMER.addInstance();
+const TIMER4        = TIMER.addInstance();
 const UART          = scripting.addModule("/ti/driverlib/UART", {}, false);
 const UART1         = UART.addInstance();
 const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
@@ -72,37 +73,38 @@ GPIO1.associatedPins[4].assignedPin       = "12";
 GPIO1.associatedPins[4].assignedPort      = "PORTA";
 GPIO1.associatedPins[4].$name             = "E2B";
 GPIO1.associatedPins[4].direction         = "INPUT";
-GPIO1.associatedPins[4].interruptEn       = true;
 GPIO1.associatedPins[4].polarity          = "RISE";
+GPIO1.associatedPins[4].interruptPriority = "0";
 GPIO1.associatedPins[4].internalResistor  = "PULL_DOWN";
-GPIO1.associatedPins[4].interruptPriority = "1";
+GPIO1.associatedPins[4].interruptEn       = true;
 GPIO1.associatedPins[5].assignedPort      = "PORTA";
 GPIO1.associatedPins[5].assignedPin       = "15";
 GPIO1.associatedPins[5].$name             = "E2A";
 GPIO1.associatedPins[5].direction         = "INPUT";
-GPIO1.associatedPins[5].interruptEn       = true;
 GPIO1.associatedPins[5].polarity          = "RISE";
+GPIO1.associatedPins[5].interruptPriority = "0";
 GPIO1.associatedPins[5].internalResistor  = "PULL_DOWN";
-GPIO1.associatedPins[5].interruptPriority = "1";
+GPIO1.associatedPins[5].interruptEn       = true;
+GPIO1.associatedPins[5].ioStructure       = "SD";
 GPIO1.associatedPins[5].pin.$assign       = "PA15";
 GPIO1.associatedPins[6].assignedPort      = "PORTA";
 GPIO1.associatedPins[6].assignedPin       = "21";
 GPIO1.associatedPins[6].$name             = "E1A";
 GPIO1.associatedPins[6].direction         = "INPUT";
 GPIO1.associatedPins[6].polarity          = "RISE";
-GPIO1.associatedPins[6].interruptEn       = true;
+GPIO1.associatedPins[6].interruptPriority = "0";
 GPIO1.associatedPins[6].internalResistor  = "PULL_DOWN";
-GPIO1.associatedPins[6].interruptPriority = "1";
-GPIO1.associatedPins[6].pin.$assign       = "PA21";
+GPIO1.associatedPins[6].interruptEn       = true;
+GPIO1.associatedPins[6].ioStructure       = "SD";
 GPIO1.associatedPins[7].assignedPort      = "PORTA";
 GPIO1.associatedPins[7].assignedPin       = "22";
 GPIO1.associatedPins[7].$name             = "E1B";
 GPIO1.associatedPins[7].direction         = "INPUT";
 GPIO1.associatedPins[7].polarity          = "RISE";
-GPIO1.associatedPins[7].interruptEn       = true;
+GPIO1.associatedPins[7].interruptPriority = "0";
 GPIO1.associatedPins[7].internalResistor  = "PULL_DOWN";
-GPIO1.associatedPins[7].interruptPriority = "1";
-GPIO1.associatedPins[7].pin.$assign       = "PA22";
+GPIO1.associatedPins[7].interruptEn       = true;
+GPIO1.associatedPins[7].ioStructure       = "SD";
 
 GPIO2.port                          = "PORTA";
 GPIO2.$name                         = "MPU";
@@ -231,9 +233,9 @@ TIMER2.$name              = "TIMER_0";
 TIMER2.timerMode          = "PERIODIC";
 TIMER2.interrupts         = ["ZERO"];
 TIMER2.timerStartTimer    = true;
-TIMER2.timerClkPrescale   = 20;
+TIMER2.timerClkPrescale   = 80;
+TIMER2.interruptPriority  = "1";
 TIMER2.timerPeriod        = "5ms";
-TIMER2.interruptPriority  = "0";
 TIMER2.peripheral.$assign = "TIMG7";
 
 TIMER3.timerClkDiv        = 8;
@@ -241,10 +243,19 @@ TIMER3.timerMode          = "PERIODIC";
 TIMER3.interrupts         = ["ZERO"];
 TIMER3.timerStartTimer    = true;
 TIMER3.timerPeriod        = "10 ms";
-TIMER3.timerClkPrescale   = 4;
 TIMER3.$name              = "TIMER_1";
-TIMER3.interruptPriority  = "0";
+TIMER3.timerClkPrescale   = 10;
+TIMER3.interruptPriority  = "2";
 TIMER3.peripheral.$assign = "TIMG6";
+
+TIMER4.$name              = "TIMER_2";
+TIMER4.timerClkPrescale   = 80;
+TIMER4.timerPeriod        = "10 ms";
+TIMER4.interrupts         = ["ZERO"];
+TIMER4.interruptPriority  = "3";
+TIMER4.timerStartTimer    = true;
+TIMER4.timerMode          = "PERIODIC_UP";
+TIMER4.peripheral.$assign = "TIMA0";
 
 UART1.$name                            = "UART_1";
 UART1.targetBaudRate                   = 115200;
@@ -272,6 +283,8 @@ Board.peripheral.$suggestSolution            = "DEBUGSS";
 Board.peripheral.swclkPin.$suggestSolution   = "PA20";
 Board.peripheral.swdioPin.$suggestSolution   = "PA19";
 GPIO1.associatedPins[4].pin.$suggestSolution = "PA12";
+GPIO1.associatedPins[6].pin.$suggestSolution = "PA21";
+GPIO1.associatedPins[7].pin.$suggestSolution = "PA22";
 GPIO2.associatedPins[0].pin.$suggestSolution = "PA0";
 GPIO2.associatedPins[1].pin.$suggestSolution = "PA1";
 GPIO3.associatedPins[0].pin.$suggestSolution = "PB9";

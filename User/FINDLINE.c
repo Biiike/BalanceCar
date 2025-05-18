@@ -45,25 +45,20 @@ void Line_Following()
 
     error=0;
     if(get_left_status()==1)
-        error+=650;
+        error+=700;
     if(get_middle1_status()==1)
-       error+=450;
+       error+=500;
     if(get_middle2_status()==1)
-        error-=450;
+        error-=500;
     if(get_right_status()==1)
-        error-=650;
+        error-=700;
     if(state==0)
     {
         error =err0;
         err0 = error;
     }
-    if(state == 111)
+    if(state ==111)
     {
-        turn_flag=1;
-    }
-    if(state ==110&&turn_flag)
-    {
-        turn_flag=0;
-        error = 700;
+        error = -2000;
     }
 }
