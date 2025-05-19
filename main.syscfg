@@ -132,16 +132,18 @@ GPIO3.associatedPins[2].assignedPin      = "7";
 GPIO3.associatedPins[2].internalResistor = "PULL_UP";
 GPIO3.associatedPins[2].direction        = "INPUT";
 
-GPIO4.port                          = "PORTB";
-GPIO4.$name                         = "USOUND";
+GPIO4.port                                = "PORTB";
+GPIO4.$name                               = "USOUND";
 GPIO4.associatedPins.create(2);
-GPIO4.associatedPins[0].$name       = "Trig";
-GPIO4.associatedPins[0].assignedPin = "19";
-GPIO4.associatedPins[1].$name       = "Echo";
-GPIO4.associatedPins[1].assignedPin = "18";
-GPIO4.associatedPins[1].direction   = "INPUT";
-GPIO4.associatedPins[1].interruptEn = true;
-GPIO4.associatedPins[1].polarity    = "RISE_FALL";
+GPIO4.associatedPins[0].$name             = "Trig";
+GPIO4.associatedPins[0].assignedPin       = "19";
+GPIO4.associatedPins[1].$name             = "Echo";
+GPIO4.associatedPins[1].assignedPin       = "18";
+GPIO4.associatedPins[1].direction         = "INPUT";
+GPIO4.associatedPins[1].interruptEn       = true;
+GPIO4.associatedPins[1].polarity          = "RISE_FALL";
+GPIO4.associatedPins[1].internalResistor  = "PULL_DOWN";
+GPIO4.associatedPins[1].interruptPriority = "2";
 
 GPIO5.$name                         = "BUZ";
 GPIO5.port                          = "PORTA";
