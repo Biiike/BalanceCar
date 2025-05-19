@@ -9,6 +9,8 @@ uint16_t Range=0;
 uint8_t Page = 0;
 bool need_clear_display; 
 int Key_Val,Key_Down,Key_Old;
+float velocity_calcu = 0;
+int line_flag;//巡线打开标志
 //按键的读取也放在超声波的读取中断里了
 void USOUND_Init()
 {
@@ -62,6 +64,15 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
             if(++Page > 2) 
                 Page = 0;
         break;
+        case 2:
+            velocity_calcu = 0;
+            line_flag = 0;
+        break;
+        case 3:
+            velocity_calcu = 2;
+            line_flag = 1;
+        break;
+
         default:break; 
     }
 

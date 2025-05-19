@@ -1,4 +1,7 @@
 #include "User\FINDLINE.h"
+#include "BUZ.h"
+#include "ENCODER.h"
+#include "USOUND.h"
 #include "stdio.h"
 #include "MOTOR.h"
 #include "CONTROL.h"
@@ -10,6 +13,7 @@ int speed_right;
 int32_t state;
 float error,err0;
 bool turn_flag=0;
+int buz_flag = 0;
 //读取状态
 uint8_t get_right_status()
 {
@@ -60,5 +64,13 @@ void Line_Following()
     if(state ==111)
     {
         error = -2000;
+    }
+    if (state == 1111) {
+        velocity_calcu = 0;
+        line_flag = 0;
+        LED_ON(3);
+        BUZ_ON();
+        buz_flag = 1;
+        
     }
 }

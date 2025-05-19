@@ -33,7 +33,7 @@ float Turn_out;
 //*****PID设置*****//
 float zhongzhi = -2.5;//机械中值
 float angle_calcu;//希望小车平衡时的角度(pitch角)
-float velocity_calcu=0;//希望小车前进速度(这里填的应该是编码器数值，如果填20那就是oled显示20编码器为20时的小车速度)
+//float velocity_calcu=0;//希望小车前进速度(这里填的应该是编码器数值，如果填20那就是oled显示20编码器为20时的小车速度)
 
 float Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
 
@@ -58,7 +58,7 @@ int main(void)
 
     while (1) 
     {
-        //Line_Following();
+        if (line_flag) Line_Following();
         if(caiji_flag)//5ms读一次欧拉角
         {
             if(mpu_dmp_get_data(&pitch, &roll, &yaw, acc) == 0)
@@ -126,10 +126,11 @@ void TIMER_2_INST_IRQHandler()
         encoder_update();
         pid_pro();
         count++;
-        if(count >=10)
+        if(buz_flag == 1 && count >=20)
         {
-            count=0;
-            LED_ON(1);
+            BUZ_OFF();
+            buz_flag = 0;
+            count =0;
         }
     }
 }
