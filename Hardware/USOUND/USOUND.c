@@ -3,6 +3,7 @@
 #include "KEY.h"
 #include "Hardware\OLED\oled.h"
 #include "User\ENCODER.h"
+#include "CONTROL.h"
 uint8_t overflowFlag;
 bool sys_state = 0;
 uint16_t Range=0;
@@ -11,6 +12,7 @@ bool need_clear_display;
 int Key_Val,Key_Down,Key_Old;
 float velocity_calcu = 0;
 int line_flag;//巡线打开标志
+
 //按键的读取也放在超声波的读取中断里了
 void USOUND_Init()
 {
@@ -69,8 +71,10 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
             line_flag = 0;
         break;
         case 3:
-            velocity_calcu = 2;
+            velocity_calcu = 3;
             line_flag = 1;
+            Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
+            VKp = 260,VKi = 260/200;//速度环
         break;
 
         default:break; 

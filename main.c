@@ -37,7 +37,7 @@ float angle_calcu;//希望小车平衡时的角度(pitch角)
 
 float Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
 
-float VKp = 260,VKi = 260/200;//速度环
+float VKp = 340,VKi = 340/200;//速度环
 
 float TKp=0, TKi=0, TKd=0;
 //****************//
@@ -125,12 +125,16 @@ void TIMER_2_INST_IRQHandler()
     {
         encoder_update();
         pid_pro();
-        count++;
-        if(buz_flag == 1 && count >=20)
+        if(buz_flag == 1)
         {
-            BUZ_OFF();
-            buz_flag = 0;
-            count =0;
+            count++;
+            if(count>=100)
+            {
+                BUZ_OFF();
+                buz_flag = 0;
+                count =0;
+            }
+
         }
     }
 }

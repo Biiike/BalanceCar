@@ -14,6 +14,7 @@ int32_t state;
 float error,err0;
 bool turn_flag=0;
 int buz_flag = 0;
+bool quan_flag=0;
 //读取状态
 uint8_t get_right_status()
 {
@@ -49,24 +50,35 @@ void Line_Following()
 
     error=0;
     if(get_left_status()==1)
-        error+=700;
+        error+=800;
     if(get_middle1_status()==1)
-       error+=500;
+       error+=600;
     if(get_middle2_status()==1)
-        error-=500;
+        error-=600;
     if(get_right_status()==1)
-        error-=700;
+        error-=800;
     if(state==0)
     {
         error =err0;
         err0 = error;
     }
-    if(state ==111)
+    if(state ==111||state == 1110||state == 1010||state == 101)
     {
         error = -2000;
+        turn_flag=1;
+    }
+    if(turn_flag&&(state == 1001||state == 1011||state == 1101))
+    {
+        turn_flag=0;
+        quan_flag=1;
+    }
+    if(quan_flag&&(state == 111||state == 1110||state == 1010||state == 101)){
+        error=0;
+        quan_flag=0;
     }
     if (state == 1111) {
         velocity_calcu = 0;
+        VKp = 340,VKi = 340/200;
         line_flag = 0;
         LED_ON(3);
         BUZ_ON();
