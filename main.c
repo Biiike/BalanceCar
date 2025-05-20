@@ -41,6 +41,7 @@ float VKp = 270,VKi = 270/200;//速度环
 
 float TKp=0, TKi=0, TKd=0;
 //****************//
+<<<<<<< HEAD
 
 
 //*****PID设置*****//
@@ -54,6 +55,8 @@ float VKp = 270,VKi = 270/200;//速度环
 
 float TKp=0, TKi=0, TKd=0;
 //****************//
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 int main(void)
 {
@@ -72,7 +75,11 @@ int main(void)
     while (1) 
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (line_flag || line_flag2) Line_Following();
+=======
+        if (line_flag) Line_Following();
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
         if (line_flag) Line_Following();
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -131,7 +138,11 @@ void pid_pro()
     PWM_right =PWM+error;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     int dead_pwm = (PWM>0)?100:(PWM<0)?-100:0;
+=======
+    int dead_pwm = (PWM>0)?170:(PWM<0)?-170:0;
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
     int dead_pwm = (PWM>0)?170:(PWM<0)?-170:0;
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -142,6 +153,7 @@ void pid_pro()
 void TIMER_2_INST_IRQHandler()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (line_flag) {
         jin_flag_count ++;
     }
@@ -150,6 +162,8 @@ void TIMER_2_INST_IRQHandler()
         jin_flag_count2 ++;
     }    
 
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     static int count=0;

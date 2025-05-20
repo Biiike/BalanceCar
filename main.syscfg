@@ -144,7 +144,11 @@ GPIO4.associatedPins[1].interruptEn       = true;
 GPIO4.associatedPins[1].polarity          = "RISE_FALL";
 GPIO4.associatedPins[1].internalResistor  = "PULL_DOWN";
 <<<<<<< HEAD
+<<<<<<< HEAD
 GPIO4.associatedPins[1].interruptPriority = "0";
+=======
+GPIO4.associatedPins[1].interruptPriority = "2";
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 GPIO4.associatedPins[1].interruptPriority = "2";
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d

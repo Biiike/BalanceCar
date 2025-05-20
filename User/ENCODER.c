@@ -49,6 +49,7 @@ void GROUP1_IRQHandler(void)
     
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // gpiob_flag = DL_GPIO_getEnabledInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
     // if((gpiob_flag&USOUND_Echo_PIN) == USOUND_Echo_PIN)
     // {
@@ -69,6 +70,8 @@ void GROUP1_IRQHandler(void)
     //  }
     //  DL_GPIO_clearInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     gpiob_flag = DL_GPIO_getEnabledInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
     if((gpiob_flag&USOUND_Echo_PIN) == USOUND_Echo_PIN)
     {
@@ -88,6 +91,9 @@ void GROUP1_IRQHandler(void)
         }
      }
      DL_GPIO_clearInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 

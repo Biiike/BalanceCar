@@ -9,7 +9,11 @@ Hardware/OPENMV/%.o: ../Hardware/OPENMV/%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MIS
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: Arm Compiler'
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"C:/ti/ccstheia151/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O0 -I"C:/Users/admin/Desktop/BalanceCar-master" -I"C:/Users/admin/Desktop/BalanceCar-master/Debug" -I"C:/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include" -I"C:/ti/mspm0_sdk_2_04_00_06/source" -I"../Hardware/BUZ" -I"../Hardware" -I"../User" -gdwarf-3 -MMD -MP -MF"Hardware/OPENMV/$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+=======
+	"C:/ti/ccstheia151/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O0 -I"C:/Users/admin/Desktop/BalanceCar-master_old" -I"C:/Users/admin/Desktop/BalanceCar-master_old/Debug" -I"C:/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include" -I"C:/ti/mspm0_sdk_2_04_00_06/source" -I"../Hardware/BUZ" -I"../Hardware" -I"../User" -gdwarf-3 -MMD -MP -MF"Hardware/OPENMV/$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 	"C:/ti/ccstheia151/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O0 -I"C:/Users/admin/Desktop/BalanceCar-master_old" -I"C:/Users/admin/Desktop/BalanceCar-master_old/Debug" -I"C:/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include" -I"C:/ti/mspm0_sdk_2_04_00_06/source" -I"../Hardware/BUZ" -I"../Hardware" -I"../User" -gdwarf-3 -MMD -MP -MF"Hardware/OPENMV/$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d

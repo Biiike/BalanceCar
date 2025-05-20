@@ -2,10 +2,17 @@
             TI ARM Clang Linker PC v4.0.0                      
 ******************************************************************************
 <<<<<<< HEAD
+<<<<<<< HEAD
 >> Linked Tue May 20 03:27:18 2025
 
 OUTPUT FILE NAME:   <Balance.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00006f51
+=======
+>> Linked Mon May 19 21:36:16 2025
+
+OUTPUT FILE NAME:   <Balance.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00006f89
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >> Linked Mon May 19 21:36:16 2025
 
@@ -19,8 +26,13 @@ MEMORY CONFIGURATION
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
 <<<<<<< HEAD
+<<<<<<< HEAD
   FLASH                 00000000   00020000  000088a8  00017758  R  X
   SRAM                  20200000   00008000  000010b7  00006f49  RW X
+=======
+  FLASH                 00000000   00020000  00008978  00017688  R  X
+  SRAM                  20200000   00008000  000010b6  00006f4a  RW X
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
   FLASH                 00000000   00020000  00008978  00017688  R  X
   SRAM                  20200000   00008000  000010b6  00006f4a  RW X
@@ -34,6 +46,7 @@ SEGMENT ALLOCATION MAP
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
 <<<<<<< HEAD
+<<<<<<< HEAD
 00000000    00000000    000088a8   000088a8    r-x
   00000000    00000000    000000c0   000000c0    r-- .intvecs
   000000c0    000000c0    00007820   00007820    r-x .text
@@ -43,6 +56,17 @@ run origin  load origin   length   init length attrs members
   20200000    20200000    00000800   00000000    rw- .sysmem
   20200800    20200800    00000440   00000000    rw- .bss
   20200c40    20200c40    00000277   00000000    rw- .data
+=======
+00000000    00000000    00008978   00008978    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    000078f0   000078f0    r-x .text
+  000079b0    000079b0    00000f10   00000f10    r-- .rodata
+  000088c0    000088c0    000000b8   000000b8    r-- .cinit
+20200000    20200000    00000ebd   00000000    rw-
+  20200000    20200000    00000800   00000000    rw- .sysmem
+  20200800    20200800    00000441   00000000    rw- .bss
+  20200c48    20200c48    00000275   00000000    rw- .data
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 00000000    00000000    00008978   00008978    r-x
   00000000    00000000    000000c0   000000c0    r-- .intvecs
@@ -66,6 +90,7 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    000000c0     
                   00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .text      0    000000c0    00007820     
                   000000c0    00000868     libc.a : _printfi.c.obj (.text:__TI_printfi_nofloat)
@@ -751,6 +776,339 @@ section   page    origin      length       input sections
                   00008960    00000008     (.cinit..bss.load) [load image, compression = zero_init]
                   00008968    00000010     (__TI_cinit_table)
 
+=======
+.text      0    000000c0    000078f0     
+                  000000c0    00000868     libc.a : _printfi.c.obj (.text:__TI_printfi_nofloat)
+                  00000928    00000364            : e_asin.c.obj (.text.asin)
+                  00000c8c    000002f8            : s_atan.c.obj (.text.atan)
+                  00000f84    00000278     inv_mpu_dmp_motion_driver.o (.text.dmp_enable_feature)
+                  000011fc    0000023c     FINDLINE.o (.text.Line_Following)
+                  00001438    00000238     inv_mpu_dmp_motion_driver.o (.text.dmp_set_tap_thresh)
+                  00001670    0000022c     inv_mpu.o (.text.mpu_reset_fifo)
+                  0000189c    00000228     inv_mpu.o (.text.mpu_dmp_get_data)
+                  00001ac4    00000214     inv_mpu.o (.text.mpu_init)
+                  00001cd8    000001f4     inv_mpu_dmp_motion_driver.o (.text.dmp_read_fifo)
+                  00001ecc    000001f0     ti_msp_dl_config.o (.text.SYSCFG_DL_GPIO_init)
+                  000020bc    000001e8     ENCODER.o (.text.GROUP1_IRQHandler)
+                  000022a4    000001a0     inv_mpu.o (.text.mpu_set_bypass)
+                  00002444    00000192     libclang_rt.builtins.a : adddf3.S.obj (.text.adddf3_subdf3)
+                  000025d6    00000002                            : aeabi_div0.c.obj (.text.__aeabi_idiv0)
+                  000025d8    00000188     libc.a : e_atan2.c.obj (.text.atan2)
+                  00002760    00000178     inv_mpu_dmp_motion_driver.o (.text.dmp_set_orientation)
+                  000028d8    00000170     libc.a : e_sqrt.c.obj (.text.sqrt)
+                  00002a48    00000130     inv_mpu.o (.text.mpu_set_sensors)
+                  00002b78    00000124     inv_mpu.o (.text.mpu_load_firmware)
+                  00002c9c    00000120     main.o (.text.pid_pro)
+                  00002dbc    00000118     inv_mpu.o (.text.mpu_dmp_init)
+                  00002ed4    00000114     USOUND.o (.text.TIMG6_IRQHandler)
+                  00002fe8    00000114     libc.a : memory.c.obj (.text.aligned_alloc)
+                  000030fc    00000110     inv_mpu.o (.text.mpu_lp_accel_mode)
+                  0000320c    0000010c     libclang_rt.builtins.a : divdf3.S.obj (.text.__divdf3)
+                  00003318    00000108     inv_mpu.o (.text.mpu_read_fifo_stream)
+                  00003420    00000104     driverlib.a : dl_timer.o (.text.DL_Timer_initFourCCPWMMode)
+                  00003524    000000fa     oled.o (.text.OLED_Init)
+                  0000361e    00000002     libclang_rt.builtins.a : aeabi_div0.c.obj (.text.__aeabi_ldiv0)
+                  00003620    000000f8     libc.a : fputs.c.obj (.text.fputs)
+                  00003718    000000ec     inv_mpu.o (.text.mpu_set_sample_rate)
+                  00003804    000000e8     driverlib.a : dl_timer.o (.text.DL_Timer_initTimerMode)
+                  000038ec    000000e8     libc.a : memory.c.obj (.text.free)
+                  000039d4    000000e4     libclang_rt.builtins.a : muldf3.S.obj (.text.__muldf3)
+                  00003ab8    000000e4     inv_mpu.o (.text.mpu_set_accel_fsr)
+                  00003b9c    000000e0     libc.a : setvbuf.c.obj (.text.setvbuf)
+                  00003c7c    000000dc     driverlib.a : dl_sysctl_mspm0g1x0x_g3x0x.o (.text.DL_SYSCTL_configSYSPLL)
+                  00003d58    000000dc     MOTOR.o (.text.set_motor_pwm)
+                  00003e34    000000d8     libclang_rt.builtins.a : addsf3.S.obj (.text)
+                  00003f0c    000000d6     bsp_mpu6050.o (.text.MPU6050_ReadData)
+                  00003fe2    00000002     libc.a : _lock.c.obj (.text._nop)
+                  00003fe4    000000d4     bsp_mpu6050.o (.text.MPU6050_Init)
+                  000040b8    000000d4     inv_mpu.o (.text.set_int_enable)
+                  0000418c    000000d0     inv_mpu.o (.text.mpu_set_lpf)
+                  0000425c    000000c4     inv_mpu.o (.text.mpu_set_gyro_fsr)
+                  00004320    000000c4     CONTROL.o (.text.velocity_PID_value)
+                  000043e4    000000c0     bsp_mpu6050.o (.text.I2C_WaitAck)
+                  000044a4    000000bc     inv_mpu.o (.text.mpu_configure_fifo)
+                  00004560    000000b8     inv_mpu.o (.text.mpu_set_dmp_state)
+                  00004618    000000b4     bsp_mpu6050.o (.text.MPU6050_WriteReg)
+                  000046cc    000000b0     CONTROL.o (.text.vertical_PID_value)
+                  0000477c    000000ac     inv_mpu.o (.text.mpu_read_mem)
+                  00004828    000000ac     inv_mpu.o (.text.mpu_write_mem)
+                  000048d4    000000a2     libclang_rt.builtins.a : udivmoddi4.S.obj (.text)
+                  00004976    00000002     --HOLE-- [fill = 0]
+                  00004978    000000a0     bsp_mpu6050.o (.text.Read_Byte)
+                  00004a18    000000a0     ti_msp_dl_config.o (.text.SYSCFG_DL_initPower)
+                  00004ab8    000000a0     bsp_mpu6050.o (.text.Send_Byte)
+                  00004b58    0000009c     OPENMV.o (.text.UART1_IRQHandler)
+                  00004bf4    0000009c     libc.a : fputc.c.obj (.text.fputc)
+                  00004c90    0000009c     inv_mpu.o (.text.mpu_set_int_latched)
+                  00004d2c    00000098     inv_mpu_dmp_motion_driver.o (.text.dmp_set_fifo_rate)
+                  00004dc4    00000098     main.o (.text.main)
+                  00004e5c    00000096     inv_mpu.o (.text.inv_row_2_scale)
+                  00004ef2    0000008e     bsp_mpu6050.o (.text.MPU_Set_LPF)
+                  00004f80    0000008c     ti_msp_dl_config.o (.text.SYSCFG_DL_PWM_Motor_init)
+                  0000500c    0000008c     libclang_rt.builtins.a : mulsf3.S.obj (.text.__mulsf3)
+                  00005098    0000008c     inv_mpu_dmp_motion_driver.o (.text.decode_gesture)
+                  00005124    0000000c     libclang_rt.builtins.a : aeabi_memset.S.obj (.text.__aeabi_memclr)
+                  00005130    00000088     libc.a : strcmp-armv6m.S.obj (.text:strcmp)
+                  000051b8    00000084     bsp_mpu6050.o (.text.IIC_Send_Ack)
+                  0000523c    00000084     ti_msp_dl_config.o (.text.__NVIC_SetPriority)
+                  000052c0    00000082     libclang_rt.builtins.a : divsf3.S.obj (.text.__divsf3)
+                  00005342    00000002     --HOLE-- [fill = 0]
+                  00005344    0000007c     oled.o (.text.SEND_Byte)
+                  000053c0    0000007c     libc.a : fclose.c.obj (.text.__TI_closefile)
+                  0000543c    0000007c            : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  000054b8    00000074     libclang_rt.builtins.a : comparedf2.c.obj (.text.__gedf2)
+                  0000552c    00000004     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  00005530    00000074     libclang_rt.builtins.a : truncdfsf2.S.obj (.text.__truncdfsf2)
+                  000055a4    00000074     DELAY.o (.text.delay_us)
+                  00005618    00000074     inv_mpu.o (.text.mpu_get_accel_fsr)
+                  0000568c    00000070     main.o (.text.TIMA0_IRQHandler)
+                  000056fc    0000006c     libsysbm.a : hostlseek.c.obj (.text.HOSTlseek)
+                  00005768    0000006c                : hostrename.c.obj (.text.HOSTrename)
+                  000057d4    0000006c     libc.a : fseek.c.obj (.text.fseeko)
+                  00005840    0000006c            : getdevice.c.obj (.text.getdevice)
+                  000058ac    0000006a     oled.o (.text.OLED_Clear)
+                  00005916    00000002     --HOLE-- [fill = 0]
+                  00005918    00000068     bsp_mpu6050.o (.text.MPU_Set_Rate)
+                  00005980    00000068     libclang_rt.builtins.a : comparedf2.c.obj (.text.__ledf2)
+                  000059e8    00000066     inv_mpu_dmp_motion_driver.o (.text.dmp_set_tap_axes)
+                  00005a4e    00000064     libc.a : _io_perm.c.obj (.text.__TI_wrt_ok)
+                  00005ab2    00000002     --HOLE-- [fill = 0]
+                  00005ab4    00000064            : memory.c.obj (.text.split)
+                  00005b18    00000062     libclang_rt.builtins.a : aeabi_dcmp.S.obj (.text.__aeabi_dcmp)
+                  00005b7a    00000002     --HOLE-- [fill = 0]
+                  00005b7c    00000062                            : aeabi_fcmp.S.obj (.text.__aeabi_fcmp)
+                  00005bde    00000002     --HOLE-- [fill = 0]
+                  00005be0    00000060     libsysbm.a : hostopen.c.obj (.text.HOSTopen)
+                  00005c40    00000060     bsp_mpu6050.o (.text.IIC_Start)
+                  00005ca0    00000060     KEY.o (.text.KEY_VAL)
+                  00005d00    00000060     inv_mpu_dmp_motion_driver.o (.text.dmp_enable_gyro_cal)
+                  00005d60    0000005c     CONTROL.o (.text.I_jiaoxianfu)
+                  00005dbc    0000005c     CONTROL.o (.text.I_xianfu)
+                  00005e18    0000005c     bsp_mpu6050.o (.text.MPU6050ReadID)
+                  00005e74    0000005c     libc.a : printf.c.obj (.text.printf)
+                  00005ed0    00000058     libsysbm.a : hostread.c.obj (.text.HOSTread)
+                  00005f28    00000058                : hostwrite.c.obj (.text.HOSTwrite)
+                  00005f80    00000058     bsp_mpu6050.o (.text.IIC_Stop)
+                  00005fd8    00000058     CONTROL.o (.text.Turn)
+                  00006030    00000056     libclang_rt.builtins.a : aeabi_idivmod.S.obj (.text.__aeabi_idivmod)
+                  00006086    00000002     --HOLE-- [fill = 0]
+                  00006088    00000054     LED.o (.text.LED_OFF)
+                  000060dc    00000054     LED.o (.text.LED_ON)
+                  00006130    00000052     libc.a : fflush.c.obj (.text.__TI_doflush)
+                  00006182    00000002     --HOLE-- [fill = 0]
+                  00006184    00000050     libsysbm.a : close.c.obj (.text.close)
+                  000061d4    0000004e     oled.o (.text.OLED_WR_Byte)
+                  00006222    00000002     --HOLE-- [fill = 0]
+                  00006224    0000004c     ti_msp_dl_config.o (.text.DL_UART_setBaudRateDivisor)
+                  00006270    0000004c     ti_msp_dl_config.o (.text.SYSCFG_DL_init)
+                  000062bc    0000004a     libclang_rt.builtins.a : fixdfsi.S.obj (.text.__fixdfsi)
+                  00006306    00000002     --HOLE-- [fill = 0]
+                  00006308    00000048     driverlib.a : dl_uart.o (.text.DL_UART_init)
+                  00006350    00000048     libsysbm.a : hostclose.c.obj (.text.HOSTclose)
+                  00006398    00000048                : hostunlink.c.obj (.text.HOSTunlink)
+                  000063e0    00000048     ti_msp_dl_config.o (.text.SYSCFG_DL_SYSCTL_init)
+                  00006428    00000048     ti_msp_dl_config.o (.text.SYSCFG_DL_UART_1_init)
+                  00006470    00000048     inv_mpu_dmp_motion_driver.o (.text.dmp_enable_6x_lp_quat)
+                  000064b8    00000048     inv_mpu_dmp_motion_driver.o (.text.dmp_enable_lp_quat)
+                  00006500    00000044     driverlib.a : dl_sysctl_mspm0g1x0x_g3x0x.o (.text.DL_SYSCTL_switchMCLKfromSYSOSCtoHSCLK)
+                  00006544    00000044     inv_mpu_dmp_motion_driver.o (.text.dmp_set_shake_reject_thresh)
+                  00006588    00000044     inv_mpu_dmp_motion_driver.o (.text.dmp_set_tap_count)
+                  000065cc    00000040     ti_msp_dl_config.o (.text.SYSCFG_DL_TIMER_0_init)
+                  0000660c    00000040     ti_msp_dl_config.o (.text.SYSCFG_DL_TIMER_USOUND_init)
+                  0000664c    00000040     libclang_rt.builtins.a : aeabi_uidivmod.S.obj (.text.__aeabi_uidivmod)
+                  0000668c    00000040                            : extendsfdf2.S.obj (.text.__extendsfdf2)
+                  000066cc    00000040     libc.a : atoi.c.obj (.text.atoi)
+                  0000670c    0000003e     inv_mpu.o (.text.inv_orientation_matrix_to_scalar)
+                  0000674a    00000002     --HOLE-- [fill = 0]
+                  0000674c    0000003c     ti_msp_dl_config.o (.text.DL_Timer_setCounterControl)
+                  00006788    0000003c     ti_msp_dl_config.o (.text.SYSCFG_DL_TIMER_1_init)
+                  000067c4    0000003c     ti_msp_dl_config.o (.text.SYSCFG_DL_TIMER_2_init)
+                  00006800    0000003c     libclang_rt.builtins.a : floatsisf.S.obj (.text.__floatsisf)
+                  0000683c    0000003c                            : comparesf2.S.obj (.text.__gtsf2)
+                  00006878    0000003c     libc.a : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  000068b4    0000003a     libclang_rt.builtins.a : comparesf2.S.obj (.text.__eqsf2)
+                  000068ee    00000002     --HOLE-- [fill = 0]
+                  000068f0    0000003a                            : muldsi3.S.obj (.text.__muldsi3)
+                  0000692a    00000002     --HOLE-- [fill = 0]
+                  0000692c    00000038     oled.o (.text.I2C_Start)
+                  00006964    00000038     libclang_rt.builtins.a : fixsfsi.S.obj (.text.__fixsfsi)
+                  0000699c    00000036     MOTOR.o (.text.pwm_limit)
+                  000069d2    00000002     --HOLE-- [fill = 0]
+                  000069d4    00000034     ti_msp_dl_config.o (.text.DL_GPIO_initDigitalInputFeatures)
+                  00006a08    00000034     libc.a : fopen.c.obj (.text.__TI_cleanup)
+                  00006a3c    00000034     libsysbm.a : trgmsg.c.obj (.text.__TI_readmsg)
+                  00006a70    00000034                : trgmsg.c.obj (.text.__TI_writemsg)
+                  00006aa4    00000034     libc.a : exit.c.obj (.text.exit)
+                  00006ad8    00000034            : getdevice.c.obj (.text.finddevice)
+                  00006b0c    00000032     inv_mpu_dmp_motion_driver.o (.text.dmp_set_shake_reject_time)
+                  00006b3e    00000032     inv_mpu_dmp_motion_driver.o (.text.dmp_set_shake_reject_timeout)
+                  00006b70    00000030     ti_msp_dl_config.o (.text.DL_GPIO_initDigitalOutputFeatures)
+                  00006ba0    00000030     oled.o (.text.I2C_Stop)
+                  00006bd0    00000030     oled.o (.text.I2C_WAITAck)
+                  00006c00    00000030     inv_mpu_dmp_motion_driver.o (.text.dmp_set_tap_time)
+                  00006c30    00000030     inv_mpu_dmp_motion_driver.o (.text.dmp_set_tap_time_multi)
+                  00006c60    0000002c     USOUND.o (.text.USOUND)
+                  00006c8c    0000002c     CONTROL.o (.text.__NVIC_ClearPendingIRQ)
+                  00006cb8    0000002c     ENCODER.o (.text.__NVIC_ClearPendingIRQ)
+                  00006ce4    0000002c     USOUND.o (.text.__NVIC_ClearPendingIRQ)
+                  00006d10    0000002c     bsp_mpu6050.o (.text.__NVIC_ClearPendingIRQ)
+                  00006d3c    0000002c     CONTROL.o (.text.__NVIC_EnableIRQ)
+                  00006d68    0000002c     ENCODER.o (.text.__NVIC_EnableIRQ)
+                  00006d94    0000002c     USOUND.o (.text.__NVIC_EnableIRQ)
+                  00006dc0    0000002c     bsp_mpu6050.o (.text.__NVIC_EnableIRQ)
+                  00006dec    0000002c     MOTOR.o (.text.set_motor1_pwm)
+                  00006e18    0000002c     MOTOR.o (.text.set_motor2_pwm)
+                  00006e44    0000002c     libsysbm.a : unlink.c.obj (.text.unlink)
+                  00006e70    00000028     ti_msp_dl_config.o (.text.DL_Common_updateReg)
+                  00006e98    00000028     ti_msp_dl_config.o (.text.DL_SYSTICK_init)
+                  00006ec0    00000028     libclang_rt.builtins.a : floatunsisf.S.obj (.text.__floatunsisf)
+                  00006ee8    00000028     ENCODER.o (.text.encoder_update)
+                  00006f10    00000028     libc.a : memory.c.obj (.text.free_list_insert)
+                  00006f38    00000028     libsysbm.a : lseek.c.obj (.text.lseek)
+                  00006f60    00000028                : write.c.obj (.text.write)
+                  00006f88    00000028     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noargs)
+                  00006fb0    00000024     oled.o (.text.Delay_ms)
+                  00006fd4    00000024     libclang_rt.builtins.a : floatunsidf.S.obj (.text.__floatunsidf)
+                  00006ff8    00000024                            : muldi3.S.obj (.text.__muldi3)
+                  0000701c    00000022     libc.a : memccpy.c.obj (.text.memccpy)
+                  0000703e    00000002     --HOLE-- [fill = 0]
+                  00007040    00000020     ti_msp_dl_config.o (.text.DL_GPIO_initPeripheralInputFunction)
+                  00007060    00000020     ti_msp_dl_config.o (.text.DL_SYSCTL_setFlashWaitState)
+                  00007080    00000020     libc.a : memcmp.c.obj (.text.memcmp)
+                  000070a0    0000001e     MOTOR.o (.text.ABS_pwm)
+                  000070be    0000001e     ti_msp_dl_config.o (.text.DL_UART_setOversampling)
+                  000070dc    0000001e     libclang_rt.builtins.a : ashldi3.S.obj (.text.__ashldi3)
+                  000070fa    00000002     --HOLE-- [fill = 0]
+                  000070fc    0000001c     ENCODER.o (.text.DL_GPIO_clearInterruptStatus)
+                  00007118    0000001c     ti_msp_dl_config.o (.text.DL_GPIO_clearInterruptStatus)
+                  00007134    0000001c     ti_msp_dl_config.o (.text.DL_GPIO_enableInterrupt)
+                  00007150    0000001c     bsp_mpu6050.o (.text.DL_GPIO_initDigitalInput)
+                  0000716c    0000001c     ti_msp_dl_config.o (.text.DL_GPIO_initPeripheralOutputFunction)
+                  00007188    0000001c     ti_msp_dl_config.o (.text.DL_GPIO_setLowerPinsPolarity)
+                  000071a4    0000001c     ti_msp_dl_config.o (.text.DL_SYSCTL_setSYSOSCFreq)
+                  000071c0    0000001c     ti_msp_dl_config.o (.text.DL_SYSCTL_setULPCLKDivider)
+                  000071dc    0000001c     ti_msp_dl_config.o (.text.DL_Timer_enableInterrupt)
+                  000071f8    0000001c     driverlib.a : dl_timer.o (.text.DL_Timer_setCaptCompUpdateMethod)
+                  00007214    0000001c                 : dl_timer.o (.text.DL_Timer_setClockConfig)
+                  00007230    0000001c     ti_msp_dl_config.o (.text.DL_UART_enableInterrupt)
+                  0000724c    0000001c     bsp_mpu6050.o (.text.MPU_Set_Accel_Fsr)
+                  00007268    0000001c     bsp_mpu6050.o (.text.MPU_Set_Gyro_Fsr)
+                  00007284    0000001c     USOUND.o (.text.USOUND_Init)
+                  000072a0    0000001c     inv_mpu_dmp_motion_driver.o (.text.dmp_load_motion_driver_firmware)
+                  000072bc    0000001c     libc.a : memory.c.obj (.text.free_list_remove)
+                  000072d8    00000018     bsp_mpu6050.o (.text.DL_GPIO_enableOutput)
+                  000072f0    00000018     ti_msp_dl_config.o (.text.DL_GPIO_enableOutput)
+                  00007308    00000018     ti_msp_dl_config.o (.text.DL_GPIO_enablePower)
+                  00007320    00000018     ENCODER.o (.text.DL_GPIO_getEnabledInterruptStatus)
+                  00007338    00000018     bsp_mpu6050.o (.text.DL_GPIO_initDigitalOutput)
+                  00007350    00000018     ti_msp_dl_config.o (.text.DL_GPIO_initDigitalOutput)
+                  00007368    00000018     ti_msp_dl_config.o (.text.DL_GPIO_reset)
+                  00007380    00000018     BUZ.o (.text.DL_GPIO_setPins)
+                  00007398    00000018     LED.o (.text.DL_GPIO_setPins)
+                  000073b0    00000018     MOTOR.o (.text.DL_GPIO_setPins)
+                  000073c8    00000018     USOUND.o (.text.DL_GPIO_setPins)
+                  000073e0    00000018     bsp_mpu6050.o (.text.DL_GPIO_setPins)
+                  000073f8    00000018     oled.o (.text.DL_GPIO_setPins)
+                  00007410    00000018     ti_msp_dl_config.o (.text.DL_GPIO_setPins)
+                  00007428    00000018     ti_msp_dl_config.o (.text.DL_GPIO_setUpperPinsPolarity)
+                  00007440    00000018     ti_msp_dl_config.o (.text.DL_SYSCTL_setBORThreshold)
+                  00007458    00000018     ti_msp_dl_config.o (.text.DL_Timer_enablePower)
+                  00007470    00000018     ti_msp_dl_config.o (.text.DL_Timer_reset)
+                  00007488    00000018     driverlib.a : dl_timer.o (.text.DL_Timer_setCaptureCompareOutCtl)
+                  000074a0    00000018     ENCODER.o (.text.DL_Timer_startCounter)
+                  000074b8    00000018     ENCODER.o (.text.DL_Timer_stopCounter)
+                  000074d0    00000018     ti_msp_dl_config.o (.text.DL_UART_enablePower)
+                  000074e8    00000018     ti_msp_dl_config.o (.text.DL_UART_reset)
+                  00007500    00000018     ENCODER.o (.text.encoder_Rst)
+                  00007518    00000018     FINDLINE.o (.text.get_left_status)
+                  00007530    00000018     FINDLINE.o (.text.get_middle1_status)
+                  00007548    00000018     FINDLINE.o (.text.get_middle2_status)
+                  00007560    00000018     FINDLINE.o (.text.get_right_status)
+                  00007578    00000016     ENCODER.o (.text.DL_GPIO_readPins)
+                  0000758e    00000016     FINDLINE.o (.text.DL_GPIO_readPins)
+                  000075a4    00000016     KEY.o (.text.DL_GPIO_readPins)
+                  000075ba    00000016     bsp_mpu6050.o (.text.DL_GPIO_readPins)
+                  000075d0    00000016     ti_msp_dl_config.o (.text.DL_UART_enable)
+                  000075e6    00000016     bsp_mpu6050.o (.text.MPU6050_IRQINIT)
+                  000075fc    00000016     CONTROL.o (.text.control_init)
+                  00007612    00000016     DELAY.o (.text.delay_ms)
+                  00007628    00000016     ENCODER.o (.text.encoder_init)
+                  0000763e    00000002     --HOLE-- [fill = 0]
+                  00007640    00000014     BUZ.o (.text.BUZ_OFF)
+                  00007654    00000014     BUZ.o (.text.BUZ_ON)
+                  00007668    00000014     BUZ.o (.text.DL_GPIO_clearPins)
+                  0000767c    00000014     LED.o (.text.DL_GPIO_clearPins)
+                  00007690    00000014     MOTOR.o (.text.DL_GPIO_clearPins)
+                  000076a4    00000014     USOUND.o (.text.DL_GPIO_clearPins)
+                  000076b8    00000014     bsp_mpu6050.o (.text.DL_GPIO_clearPins)
+                  000076cc    00000014     oled.o (.text.DL_GPIO_clearPins)
+                  000076e0    00000014     ti_msp_dl_config.o (.text.DL_GPIO_clearPins)
+                  000076f4    00000014     ti_msp_dl_config.o (.text.DL_SYSCTL_disableSYSPLL)
+                  00007708    00000014     ti_msp_dl_config.o (.text.DL_Timer_enableClock)
+                  0000771c    00000014     ti_msp_dl_config.o (.text.DL_Timer_setCCPDirection)
+                  00007730    00000014     ENCODER.o (.text.DL_Timer_setTimerCount)
+                  00007744    00000014     OPENMV.o (.text.DL_UART_receiveData)
+                  00007758    00000014     libclang_rt.builtins.a : aeabi_uldivmod.S.obj (.text.__aeabi_uldivmod)
+                  0000776c    00000012     USOUND.o (.text.DL_Timer_getPendingInterrupt)
+                  0000777e    00000012     main.o (.text.DL_Timer_getPendingInterrupt)
+                  00007790    00000012     OPENMV.o (.text.DL_UART_getPendingInterrupt)
+                  000077a2    00000012     driverlib.a : dl_uart.o (.text.DL_UART_setClockConfig)
+                  000077b4    00000012     libc.a : memcpy16.S.obj (.text:TI_memcpy_small)
+                  000077c6    00000012            : copy_decompress_none.c.obj (.text:decompress:none)
+                  000077d8    00000010     ti_msp_dl_config.o (.text.DL_SYSCTL_disableHFXT)
+                  000077e8    00000010     ti_msp_dl_config.o (.text.DL_SYSTICK_enable)
+                  000077f8    00000010     ENCODER.o (.text.DL_Timer_getTimerCount)
+                  00007808    00000010     driverlib.a : dl_timer.o (.text.DL_Timer_setCaptureCompareValue)
+                  00007818    00000010     bsp_mpu6050.o (.text.TIMG7_IRQHandler)
+                  00007828    00000010     libc.a : wcslen.c.obj (.text.wcslen)
+                  00007838    00000010            : copy_zero_init.c.obj (.text:decompress:ZI)
+                  00007848    0000000e            : memory.c.obj (.text.OUTLINED_FUNCTION_0)
+                  00007856    0000000e     ti_msp_dl_config.o (.text.SYSCFG_DL_SYSTICK_init)
+                  00007864    0000000e     libclang_rt.builtins.a : aeabi_memset.S.obj (.text.__aeabi_memset)
+                  00007872    0000000e     libsysbm.a : hostrename.c.obj (.text.strcpy)
+                  00007880    0000000e     libc.a : _printfi.c.obj (.text.strlen)
+                  0000788e    0000000e     libsysbm.a : hostrename.c.obj (.text.strlen)
+                  0000789c    0000000e     libc.a : memset16.S.obj (.text:TI_memset_small)
+                  000078aa    00000002     --HOLE-- [fill = 0]
+                  000078ac    0000000c     ENCODER.o (.text.get_encoder_cnt1)
+                  000078b8    0000000c     ENCODER.o (.text.get_encoder_cnt2)
+                  000078c4    0000000c     libc.a : memory.c.obj (.text.malloc)
+                  000078d0    0000000a     driverlib.a : dl_common.o (.text.DL_Common_delayCycles)
+                  000078da    0000000a     libc.a : e_asin.c.obj (.text.OUTLINED_FUNCTION_0)
+                  000078e4    00000010     libclang_rt.builtins.a : muldf3.S.obj (.tramp.__aeabi_dmul.1)
+                  000078f4    0000000a     libc.a : s_atan.c.obj (.text.OUTLINED_FUNCTION_0)
+                  000078fe    0000000a            : e_asin.c.obj (.text.OUTLINED_FUNCTION_1)
+                  00007908    0000000a            : e_asin.c.obj (.text.OUTLINED_FUNCTION_3)
+                  00007912    00000002     --HOLE-- [fill = 0]
+                  00007914    00000010     libclang_rt.builtins.a : divdf3.S.obj (.tramp.__aeabi_ddiv.1)
+                  00007924    00000008     libc.a : s_atan.c.obj (.text.OUTLINED_FUNCTION_2)
+                  0000792c    00000008            : aeabi_portable.c.obj (.text.__aeabi_errno_addr)
+                  00007934    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
+                  0000793c    00000008     libc.a : printf.c.obj (.text._outc)
+                  00007944    00000008            : printf.c.obj (.text._outs)
+                  0000794c    00000008            : fseek.c.obj (.text.fseek)
+                  00007954    00000008     inv_mpu.o (.text.mget_ms)
+                  0000795c    00000008     libsysbm.a : remove.c.obj (.text.remove)
+                  00007964    00000006     libc.a : s_atan.c.obj (.text.OUTLINED_FUNCTION_1)
+                  0000796a    00000002     --HOLE-- [fill = 0]
+                  0000796c    00000010     libclang_rt.builtins.a : adddf3.S.obj (.tramp.__aeabi_dadd.1)
+                  0000797c    00000006     libc.a : e_asin.c.obj (.text.OUTLINED_FUNCTION_2)
+                  00007982    00000004            : e_asin.c.obj (.text.OUTLINED_FUNCTION_4)
+                  00007986    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  0000798a    00000002     --HOLE-- [fill = 0]
+                  0000798c    00000010     libc.a : boot_cortex_m.c.obj (.tramp._c_int00_noargs.1)
+                  0000799c    00000004            : pre_init.c.obj (.text._system_pre_init)
+                  000079a0    00000004            : exit.c.obj (.text:abort)
+                  000079a4    0000000c     --HOLE-- [fill = 0]
+
+.cinit     0    000088c0    000000b8     
+                  000088c0    00000092     (.cinit..data.load) [load image, compression = lzss]
+                  00008952    00000002     --HOLE-- [fill = 0]
+                  00008954    0000000c     (__TI_handler_table)
+                  00008960    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00008968    00000010     (__TI_cinit_table)
+
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 .rodata    0    000079b0    00000f10     
                   000079b0    00000bf6     inv_mpu_dmp_motion_driver.o (.rodata.dmp_memory)
                   000085a6    0000000a     ti_msp_dl_config.o (.rodata.gUART_1Config)
@@ -781,6 +1139,9 @@ section   page    origin      length       input sections
                   000088b2    00000003     ti_msp_dl_config.o (.rodata.gTIMER_2ClockConfig)
                   000088b5    00000003     ti_msp_dl_config.o (.rodata.gTIMER_USOUNDClockConfig)
                   000088b8    00000008     --HOLE-- [fill = 0]
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 .init_array 
@@ -793,7 +1154,11 @@ section   page    origin      length       input sections
                   20200010    000007f0     --HOLE--
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .bss       0    20200800    00000440     UNINITIALIZED
+=======
+.bss       0    20200800    00000441     UNINITIALIZED
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 .bss       0    20200800    00000441     UNINITIALIZED
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -806,7 +1171,11 @@ section   page    origin      length       input sections
                   20200bc4    00000006     (.common:acc)
                   20200bca    00000005     (.common:rx_buff)
 <<<<<<< HEAD
+<<<<<<< HEAD
                   20200bcf    00000001     (.common:temp)
+=======
+                  20200bcf    00000001     (.common:need_clear_display)
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
                   20200bcf    00000001     (.common:need_clear_display)
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -819,6 +1188,7 @@ section   page    origin      length       input sections
                   20200be8    00000004     (.common:PWM_right)
                   20200bec    00000004     (.common:Turn_out)
                   20200bf0    00000004     (.common:angle_calcu)
+<<<<<<< HEAD
 <<<<<<< HEAD
                   20200bf4    00000004     (.common:cnt_l)
                   20200bf8    00000004     (.common:cnt_r)
@@ -902,6 +1272,29 @@ section   page    origin      length       input sections
                   20200c3c    00000004     (.common:yaw)
                   20200c40    00000001     (.common:temp)
 
+=======
+                  20200bf4    00000004     (.common:cnt)
+                  20200bf8    00000004     (.common:cnt_l)
+                  20200bfc    00000004     (.common:cnt_r)
+                  20200c00    00000004     (.common:err)
+                  20200c04    00000004     (.common:err0)
+                  20200c08    00000004     (.common:err_difference)
+                  20200c0c    00000004     (.common:error)
+                  20200c10    00000004     (.common:filt_velocity)
+                  20200c14    00000004     (.common:gpio_flag)
+                  20200c18    00000004     (.common:gpiob_flag)
+                  20200c1c    00000004     (.common:last_err)
+                  20200c20    00000004     (.common:last_filt_velocity)
+                  20200c24    00000004     (.common:line_flag)
+                  20200c28    00000004     (.common:pitch)
+                  20200c2c    00000004     (.common:roll)
+                  20200c30    00000004     (.common:state)
+                  20200c34    00000004     (.common:usound_flag)
+                  20200c38    00000004     (.common:velocity_err)
+                  20200c3c    00000004     (.common:yaw)
+                  20200c40    00000001     (.common:temp)
+
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 .data      0    20200c48    00000275     UNINITIALIZED
                   20200c48    000000f0     libc.a : defs.c.obj (.data._ftable)
                   20200d38    00000078     libsysbm.a : host_device.c.obj (.data._device)
@@ -943,6 +1336,9 @@ section   page    origin      length       input sections
                   20200eba    00000001     OPENMV.o (.data.rx_index)
                   20200ebb    00000001     USOUND.o (.data.sys_state)
                   20200ebc    00000001     FINDLINE.o (.data.turn_flag)
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 .stack     0    20207e00    00000200     UNINITIALIZED
@@ -962,10 +1358,17 @@ MODULE SUMMARY
     .\
        ti_msp_dl_config.o             2442    155       508    
 <<<<<<< HEAD
+<<<<<<< HEAD
        main.o                         638     0         94     
        startup_mspm0g350x_ticlang.o   8       192       0      
     +--+------------------------------+-------+---------+---------+
        Total:                         3088    347       602    
+=======
+       main.o                         570     0         95     
+       startup_mspm0g350x_ticlang.o   8       192       0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         3020    347       603    
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
        main.o                         570     0         95     
        startup_mspm0g350x_ticlang.o   8       192       0      
@@ -1006,6 +1409,7 @@ MODULE SUMMARY
                                                                
     .\Hardware\USOUND\
 <<<<<<< HEAD
+<<<<<<< HEAD
        USOUND.o                       462     0         29     
     +--+------------------------------+-------+---------+---------+
        Total:                         462     0         29     
@@ -1024,12 +1428,26 @@ MODULE SUMMARY
        CONTROL.o                      754     0         32     
        FINDLINE.o                     690     0         14     
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
+       USOUND.o                       498     0         26     
+    +--+------------------------------+-------+---------+---------+
+       Total:                         498     0         26     
+                                                               
+    .\User\
+       ENCODER.o                      844     0         40     
+       CONTROL.o                      754     0         32     
+       FINDLINE.o                     690     0         14     
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
        LED.o                          212     0         0      
        DELAY.o                        138     0         0      
        KEY.o                          118     0         1      
     +--+------------------------------+-------+---------+---------+
 <<<<<<< HEAD
+<<<<<<< HEAD
        Total:                         2636    0         86     
+=======
+       Total:                         2756    0         87     
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
        Total:                         2756    0         87     
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -1115,6 +1533,9 @@ MODULE SUMMARY
 <<<<<<< HEAD
 =======
        fixdfsi.S.obj                  74      0         0      
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
        aeabi_uidivmod.S.obj           64      0         0      
        extendsfdf2.S.obj              64      0         0      
@@ -1129,6 +1550,7 @@ MODULE SUMMARY
        aeabi_memcpy.S.obj             8       0         0      
        aeabi_div0.c.obj               4       0         0      
     +--+------------------------------+-------+---------+---------+
+<<<<<<< HEAD
 <<<<<<< HEAD
        Total:                         2796    0         0      
                                                                
@@ -1146,14 +1568,29 @@ MODULE SUMMARY
     +--+------------------------------+-------+---------+---------+
        Grand Total:                   30906   4221      4278   
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
+       Total:                         2906    0         0      
+                                                               
+       Heap:                          0       0         2048   
+       Stack:                         0       0         512    
+       Linker Generated:              0       182       0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   30906   4221      4278   
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 
 LINKER GENERATED COPY TABLES
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __TI_cinit_table @ 00008894 records: 2, size/record: 8, table size: 16
 	.data: load addr=000087f0, load size=0000008f bytes, run addr=20200c40, run size=00000277 bytes, compression=lzss
 	.bss: load addr=0000888c, load size=00000008 bytes, run addr=20200800, run size=00000440 bytes, compression=zero_init
+=======
+__TI_cinit_table @ 00008968 records: 2, size/record: 8, table size: 16
+	.data: load addr=000088c0, load size=00000092 bytes, run addr=20200c48, run size=00000275 bytes, compression=lzss
+	.bss: load addr=00008960, load size=00000008 bytes, run addr=20200800, run size=00000441 bytes, compression=zero_init
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 __TI_cinit_table @ 00008968 records: 2, size/record: 8, table size: 16
 	.data: load addr=000088c0, load size=00000092 bytes, run addr=20200c48, run size=00000275 bytes, compression=lzss
@@ -1164,7 +1601,11 @@ __TI_cinit_table @ 00008968 records: 2, size/record: 8, table size: 16
 LINKER GENERATED HANDLER TABLE
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __TI_handler_table @ 00008880 records: 3, size/record: 4, table size: 12
+=======
+__TI_handler_table @ 00008954 records: 3, size/record: 4, table size: 12
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 __TI_handler_table @ 00008954 records: 3, size/record: 4, table size: 12
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -1179,6 +1620,7 @@ callee name               trampoline name
    callee addr  tramp addr   call addr  call info
 --------------  -----------  ---------  ----------------
 __aeabi_dmul              $Tramp$TT$L$PI$$__aeabi_dmul
+<<<<<<< HEAD
 <<<<<<< HEAD
    000039dd     0000781c     0000781a   libc.a : e_asin.c.obj (.text.OUTLINED_FUNCTION_0)
                              00007834          : s_atan.c.obj (.text.OUTLINED_FUNCTION_0)
@@ -1206,6 +1648,20 @@ __aeabi_dadd              $Tramp$TT$L$PI$$__aeabi_dadd
 _c_int00_noargs           $Tramp$TT$L$PI$$_c_int00_noargs
    00006f89     0000798c     00007986   startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
+   000039d5     000078e4     000078e2   libc.a : e_asin.c.obj (.text.OUTLINED_FUNCTION_0)
+                             000078fc          : s_atan.c.obj (.text.OUTLINED_FUNCTION_0)
+                             00007906          : e_asin.c.obj (.text.OUTLINED_FUNCTION_1)
+                             0000792a          : s_atan.c.obj (.text.OUTLINED_FUNCTION_2)
+                             00007980          : e_asin.c.obj (.text.OUTLINED_FUNCTION_2)
+__aeabi_ddiv              $Tramp$TT$L$PI$$__aeabi_ddiv
+   0000320d     00007914     00007910   libc.a : e_asin.c.obj (.text.OUTLINED_FUNCTION_3)
+__aeabi_dadd              $Tramp$TT$L$PI$$__aeabi_dadd
+   0000244f     0000796c     00007968   libc.a : s_atan.c.obj (.text.OUTLINED_FUNCTION_1)
+                             00007984          : e_asin.c.obj (.text.OUTLINED_FUNCTION_4)
+_c_int00_noargs           $Tramp$TT$L$PI$$_c_int00_noargs
+   00006f89     0000798c     00007986   startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 [4 trampolines]
 [9 trampoline calls]
@@ -1215,6 +1671,7 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address   name                                 
 -------   ----                                 
+<<<<<<< HEAD
 <<<<<<< HEAD
 00007069  ABS_pwm                              
 000055dd  ADC0_IRQHandler                      
@@ -1330,6 +1787,8 @@ address   name
 20200e70  VKi                                  
 20200e74  VKp                                  
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 000070a1  ABS_pwm                              
 0000552d  ADC0_IRQHandler                      
 0000552d  ADC1_IRQHandler                      
@@ -1445,6 +1904,9 @@ address   name
 00007285  USOUND_Init                          
 20200e78  VKi                                  
 20200e7c  VKp                                  
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 20200800  _CIOBUF_                             
 20200800  __CIOBUF_                            
@@ -1461,6 +1923,7 @@ address   name
 00000000  __TI_ATRegion2_src_addr              
 00000000  __TI_ATRegion2_trg_addr              
 <<<<<<< HEAD
+<<<<<<< HEAD
 00008894  __TI_CINIT_Base                      
 000088a4  __TI_CINIT_Limit                     
 000088a4  __TI_CINIT_Warm                      
@@ -1476,6 +1939,8 @@ address   name
 20200e44  __TI_dtors_ptr                       
 20200e78  __TI_ft_end                          
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 00008968  __TI_CINIT_Base                      
 00008978  __TI_CINIT_Limit                     
 00008978  __TI_CINIT_Warm                      
@@ -1490,11 +1955,15 @@ address   name
 00006131  __TI_doflush                         
 20200e4c  __TI_dtors_ptr                       
 20200e80  __TI_ft_end                          
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 ffffffff  __TI_pprof_out_hndl                  
 000000c1  __TI_printfi_nofloat                 
 ffffffff  __TI_prof_data_size                  
 ffffffff  __TI_prof_data_start                 
+<<<<<<< HEAD
 <<<<<<< HEAD
 00006a31  __TI_readmsg                         
 00000000  __TI_static_base__                   
@@ -1577,6 +2046,8 @@ UNDEFED   __mpu_init
 000059c1  __nedf2                              
 000068a9  __nesf2                              
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 00006a3d  __TI_readmsg                         
 00000000  __TI_static_base__                   
 202009dc  __TI_tmpnams                         
@@ -1661,12 +2132,16 @@ UNDEFED   __mpu_init
 0000500d  __mulsf3                             
 00005981  __nedf2                              
 000068b5  __nesf2                              
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 20207e00  __stack                              
 20200000  __start___llvm_prf_bits              
 20200000  __start___llvm_prf_cnts              
 20200000  __stop___llvm_prf_bits               
 20200000  __stop___llvm_prf_cnts               
+<<<<<<< HEAD
 <<<<<<< HEAD
 000022e5  __subdf3                             
 00003e3d  __subsf3                             
@@ -1686,6 +2161,8 @@ UNDEFED   _system_post_cinit
 20200bc4  acc                                  
 00002ff1  aligned_alloc                        
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 00002445  __subdf3                             
 00003e35  __subsf3                             
 00005531  __truncdfsf2                         
@@ -1703,11 +2180,15 @@ UNDEFED   _system_post_cinit
 000079a1  abort                                
 20200bc4  acc                                  
 00002fe9  aligned_alloc                        
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 20200bf0  angle_calcu                          
 00000929  asin                                 
 00000929  asinl                                
 00000c8d  atan                                 
+<<<<<<< HEAD
 <<<<<<< HEAD
 00002479  atan2                                
 00002479  atan2l                               
@@ -1842,6 +2323,8 @@ ffffffff  binit
 20200c3c  yaw                                  
 20200eac  zhongzhi                             
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 000025d9  atan2                                
 000025d9  atan2l                               
 00000c8d  atanl                                
@@ -1975,6 +2458,9 @@ ffffffff  binit
 00006f61  write                                
 20200c3c  yaw                                  
 20200eb0  zhongzhi                             
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 
@@ -2001,6 +2487,7 @@ address   name
 00000c8d  atan                                 
 00000c8d  atanl                                
 <<<<<<< HEAD
+<<<<<<< HEAD
 00000f85  Line_Following                       
 00001249  dmp_enable_feature                   
 000014c1  dmp_set_tap_thresh                   
@@ -2282,6 +2769,8 @@ address   name
 000088a4  __TI_CINIT_Limit                     
 000088a4  __TI_CINIT_Warm                      
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 00000f85  dmp_enable_feature                   
 000011fd  Line_Following                       
 00001439  dmp_set_tap_thresh                   
@@ -2567,6 +3056,9 @@ address   name
 00008968  __TI_CINIT_Base                      
 00008978  __TI_CINIT_Limit                     
 00008978  __TI_CINIT_Warm                      
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 20200000  __start___llvm_prf_bits              
 20200000  __start___llvm_prf_cnts              
@@ -2583,7 +3075,11 @@ address   name
 20200bc4  acc                                  
 20200bca  rx_buff                              
 <<<<<<< HEAD
+<<<<<<< HEAD
 20200bcf  temp                                 
+=======
+20200bcf  need_clear_display                   
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 20200bcf  need_clear_display                   
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
@@ -2595,6 +3091,7 @@ address   name
 20200be8  PWM_right                            
 20200bec  Turn_out                             
 20200bf0  angle_calcu                          
+<<<<<<< HEAD
 <<<<<<< HEAD
 20200bf4  cnt_l                                
 20200bf8  cnt_r                                
@@ -2650,6 +3147,8 @@ address   name
 20200eb5  sys_state                            
 20200eb6  turn_flag                            
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 20200bf4  cnt                                  
 20200bf8  cnt_l                                
 20200bfc  cnt_r                                
@@ -2705,6 +3204,9 @@ address   name
 20200eba  rx_index                             
 20200ebb  sys_state                            
 20200ebc  turn_flag                            
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 20207e00  __stack                              
 20208000  __STACK_END                          
@@ -2717,7 +3219,11 @@ UNDEFED   __mpu_init
 UNDEFED   _system_post_cinit                   
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [383 symbols]
+=======
+[390 symbols]
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 [390 symbols]
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d

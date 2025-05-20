@@ -6,7 +6,10 @@
 #include "User\ENCODER.h"
 #include "CONTROL.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "User\FINDLINE.h"
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 uint8_t overflowFlag;
@@ -18,7 +21,10 @@ int Key_Val,Key_Down,Key_Old;
 float velocity_calcu = 0;
 int line_flag;//巡线打开标志
 <<<<<<< HEAD
+<<<<<<< HEAD
 int line_flag2;
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
@@ -32,7 +38,10 @@ void USOUND_Init()
     NVIC_EnableIRQ(TIMER_1_INST_INT_IRQN);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     NVIC_ClearPendingIRQ(USOUND_INT_IRQN);
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     NVIC_EnableIRQ(USOUND_INT_IRQN);
@@ -88,6 +97,9 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
             need_clear_display = true;
             if(++Page > 2) 
                 Page = 0;
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         break;
         case 2:
@@ -96,6 +108,7 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
         break;
         case 3:
 <<<<<<< HEAD
+<<<<<<< HEAD
             jin_flag_count =0;
             jin_flag_count2 = 9999;
             velocity_calcu = 4;
@@ -103,10 +116,15 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
             Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
             VKp = 190,VKi = 200/200;//速度环
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
             velocity_calcu = 5;
             line_flag = 1;
             Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
             VKp = 150,VKi = 150/200;//速度环
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         break;
 
@@ -120,9 +138,15 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
         sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
         cnt1++;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(cnt1>=10)//100ms
         {
             //USOUND();
+=======
+        if(cnt1>=20)//100ms
+        {
+            USOUND();
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
         if(cnt1>=20)//100ms
         {

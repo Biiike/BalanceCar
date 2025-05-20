@@ -1,7 +1,10 @@
 #include "User\FINDLINE.h"
 #include "BUZ.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "DELAY.h"
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 #include "ENCODER.h"
@@ -20,12 +23,15 @@ bool turn_flag=0;
 int buz_flag = 0;
 bool quan_flag=0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 int jin_flag_count;
 int jin_flag_count2;
 int jin_flag = 0;
 
 int new_round = 0;
 
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 =======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 //读取状态
@@ -64,6 +70,7 @@ void Line_Following()
     error=0;
     if(get_left_status()==1)
 <<<<<<< HEAD
+<<<<<<< HEAD
         {
          error+=800;
   
@@ -82,6 +89,8 @@ void Line_Following()
         error-=800;
 
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         error+=800;
     if(get_middle1_status()==1)
        error+=600;
@@ -89,12 +98,16 @@ void Line_Following()
         error-=600;
     if(get_right_status()==1)
         error-=800;
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     if(state==0)
     {
         error =err0;
         err0 = error;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
     if(jin_flag_count < 4500)
     {
@@ -141,6 +154,8 @@ void Line_Following()
         buz_flag = 1;
         jin_flag = 0;//
 =======
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     if(state ==111||state == 1110||state == 1010||state == 101)
     {
         error = -2000;
@@ -162,6 +177,9 @@ void Line_Following()
         LED_ON(3);
         BUZ_ON();
         buz_flag = 1;
+<<<<<<< HEAD
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
+=======
 >>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         
     }
