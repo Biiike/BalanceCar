@@ -48,6 +48,7 @@ void GROUP1_IRQHandler(void)
 {
     
 
+<<<<<<< HEAD
     // gpiob_flag = DL_GPIO_getEnabledInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
     // if((gpiob_flag&USOUND_Echo_PIN) == USOUND_Echo_PIN)
     // {
@@ -67,6 +68,27 @@ void GROUP1_IRQHandler(void)
     //     }
     //  }
     //  DL_GPIO_clearInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
+=======
+    gpiob_flag = DL_GPIO_getEnabledInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
+    if((gpiob_flag&USOUND_Echo_PIN) == USOUND_Echo_PIN)
+    {
+        if(usound_flag == 0)
+        {
+            DL_TimerG_setTimerCount(TIMER_USOUND_INST, 0);//计数置0
+            DL_TimerG_startCounter(TIMER_USOUND_INST);//开始计数
+            usound_flag = 1;
+        }   
+        else
+        {
+            DL_TimerG_stopCounter(TIMER_USOUND_INST);//停止计数
+            usound_flag = 0;
+            cnt = DL_TimerG_getTimerCount(TIMER_USOUND_INST);
+            DL_TimerG_setTimerCount(TIMER_USOUND_INST, 0);
+            Range = cnt*0.017;
+        }
+     }
+     DL_GPIO_clearInterruptStatus(USOUND_PORT,USOUND_Echo_PIN);
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 
 

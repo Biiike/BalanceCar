@@ -1,6 +1,9 @@
 #include "User\FINDLINE.h"
 #include "BUZ.h"
+<<<<<<< HEAD
 #include "DELAY.h"
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 #include "ENCODER.h"
 #include "USOUND.h"
 #include "stdio.h"
@@ -16,12 +19,15 @@ float error,err0;
 bool turn_flag=0;
 int buz_flag = 0;
 bool quan_flag=0;
+<<<<<<< HEAD
 int jin_flag_count;
 int jin_flag_count2;
 int jin_flag = 0;
 
 int new_round = 0;
 
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 //读取状态
 uint8_t get_right_status()
 {
@@ -57,6 +63,7 @@ void Line_Following()
 
     error=0;
     if(get_left_status()==1)
+<<<<<<< HEAD
         {
          error+=800;
   
@@ -74,11 +81,21 @@ void Line_Following()
     if(get_right_status()==1)
         error-=800;
 
+=======
+        error+=800;
+    if(get_middle1_status()==1)
+       error+=600;
+    if(get_middle2_status()==1)
+        error-=600;
+    if(get_right_status()==1)
+        error-=800;
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     if(state==0)
     {
         error =err0;
         err0 = error;
     }
+<<<<<<< HEAD
     if(jin_flag_count < 4500)
     {
         LED_ON(3);
@@ -123,6 +140,29 @@ void Line_Following()
         BUZ_ON();
         buz_flag = 1;
         jin_flag = 0;//
+=======
+    if(state ==111||state == 1110||state == 1010||state == 101)
+    {
+        error = -2000;
+        turn_flag=1;
+    }
+    if(turn_flag&&(state == 1001||state == 1011||state == 1101))
+    {
+        turn_flag=0;
+        quan_flag=1;
+    }
+    if(quan_flag&&(state == 111||state == 1110||state == 1010||state == 101)){
+        error=0;
+        quan_flag=0;
+    }
+    if (state == 1111) {
+        velocity_calcu = 0;
+        VKp = 340,VKi = 340/200;
+        line_flag = 0;
+        LED_ON(3);
+        BUZ_ON();
+        buz_flag = 1;
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         
     }
 }

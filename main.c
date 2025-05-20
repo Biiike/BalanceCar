@@ -30,6 +30,17 @@ int PWM_left;
 int PWM_right;
 float Turn_out;
 
+//*****PID设置*****//
+float zhongzhi = -2.5;//机械中值
+float angle_calcu;//希望小车平衡时的角度(pitch角)
+//float velocity_calcu=0;//希望小车前进速度(这里填的应该是编码器数值，如果填20那就是oled显示20编码器为20时的小车速度)
+
+float Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
+
+float VKp = 270,VKi = 270/200;//速度环
+
+float TKp=0, TKi=0, TKd=0;
+//****************//
 
 
 //*****PID设置*****//
@@ -60,7 +71,11 @@ int main(void)
 
     while (1) 
     {
+<<<<<<< HEAD
         if (line_flag || line_flag2) Line_Following();
+=======
+        if (line_flag) Line_Following();
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         if(caiji_flag)//5ms读一次欧拉角
         {
             if(mpu_dmp_get_data(&pitch, &roll, &yaw, acc) == 0)
@@ -115,13 +130,18 @@ void pid_pro()
     PWM_left  =PWM-error;
     PWM_right =PWM+error;
 
+<<<<<<< HEAD
     int dead_pwm = (PWM>0)?100:(PWM<0)?-100:0;
+=======
+    int dead_pwm = (PWM>0)?170:(PWM<0)?-170:0;
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     set_motor_pwm(PWM_left+dead_pwm,PWM_right+dead_pwm);
     
 }
 //10ms中断一次
 void TIMER_2_INST_IRQHandler()
 {
+<<<<<<< HEAD
     if (line_flag) {
         jin_flag_count ++;
     }
@@ -130,6 +150,8 @@ void TIMER_2_INST_IRQHandler()
         jin_flag_count2 ++;
     }    
 
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     static int count=0;
     if(DL_TimerA_getPendingInterrupt(TIMER_2_INST)==DL_TIMER_IIDX_ZERO)
     {

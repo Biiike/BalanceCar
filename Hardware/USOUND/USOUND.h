@@ -14,6 +14,10 @@ extern uint8_t Page;
 extern bool need_clear_display;
 extern float velocity_calcu;
 extern int line_flag;
+<<<<<<< HEAD
 extern int line_flag2;
+=======
+
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 #endif
 

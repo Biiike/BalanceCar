@@ -5,7 +5,10 @@
 #include "Hardware\OLED\oled.h"
 #include "User\ENCODER.h"
 #include "CONTROL.h"
+<<<<<<< HEAD
 #include "User\FINDLINE.h"
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 uint8_t overflowFlag;
 bool sys_state = 0;
 uint16_t Range=0;
@@ -14,7 +17,10 @@ bool need_clear_display;
 int Key_Val,Key_Down,Key_Old;
 float velocity_calcu = 0;
 int line_flag;//巡线打开标志
+<<<<<<< HEAD
 int line_flag2;
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
 
 //按键的读取也放在超声波的读取中断里了
 void USOUND_Init()
@@ -25,7 +31,10 @@ void USOUND_Init()
     NVIC_ClearPendingIRQ(TIMER_1_INST_INT_IRQN);//超声波读取中断开启
     NVIC_EnableIRQ(TIMER_1_INST_INT_IRQN);
 
+<<<<<<< HEAD
     NVIC_ClearPendingIRQ(USOUND_INT_IRQN);
+=======
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
     NVIC_EnableIRQ(USOUND_INT_IRQN);
 
 }
@@ -68,24 +77,37 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
     Key_Old = Key_Val;
     switch (Key_Down) {
         case 1:
+<<<<<<< HEAD
             jin_flag_count =9999;
             jin_flag_count2 = 0;
             velocity_calcu = 3;
             line_flag2 = 1;
             Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
             VKp = 190,VKi = 200/200;//速度环
+=======
+            need_clear_display = true;
+            if(++Page > 2) 
+                Page = 0;
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         break;
         case 2:
             velocity_calcu = 0;
             line_flag = 0;
         break;
         case 3:
+<<<<<<< HEAD
             jin_flag_count =0;
             jin_flag_count2 = 9999;
             velocity_calcu = 4;
             line_flag = 1;
             Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
             VKp = 190,VKi = 200/200;//速度环
+=======
+            velocity_calcu = 5;
+            line_flag = 1;
+            Kp = 230*0.6,Ki = 0,Kd =1500*0.6;//直立环
+            VKp = 150,VKi = 150/200;//速度环
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
         break;
 
         default:break; 
@@ -97,9 +119,15 @@ void TIMER_1_INST_IRQHandler(void)//超声波的读取中断 10ms
 
         sys_state ^= 1;//系统运行标志，右上角会有"!"闪烁
         cnt1++;
+<<<<<<< HEAD
         if(cnt1>=10)//100ms
         {
             //USOUND();
+=======
+        if(cnt1>=20)//100ms
+        {
+            USOUND();
+>>>>>>> 9f4ea1d7ae52ae9efc406f5c9c5bc89bca9d183d
             cnt1=0;
         }
     }
