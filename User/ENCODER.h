@@ -13,5 +13,5 @@ int get_encoder_cnt2(void);
 uint8_t get_direction(void);
 void encoder_Rst(void);
 void encoder_update(void);
-
+extern int buz_flag;
 #endif

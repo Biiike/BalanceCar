@@ -6,12 +6,14 @@
 #include "ti_msp_dl_config.h"
 #include "LED.h"
 
-uint32_t USOUND();
+void USOUND();
 void USOUND_Init(void);
 extern bool sys_state;//系统运行状态
 extern uint16_t Range;//超声波数据
 extern uint8_t Page;
 extern bool need_clear_display;
-
+extern float velocity_calcu;
+extern int line_flag;
+extern int line_flag2;
 #endif
 
